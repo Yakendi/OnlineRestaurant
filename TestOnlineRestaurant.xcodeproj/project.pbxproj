@@ -18,6 +18,7 @@
 		C6DA74BF2A4B47E5004F62D1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74BE2A4B47E5004F62D1 /* Coordinator.swift */; };
 		C6DA74C42A4B4ABA004F62D1 /* HomePageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74C32A4B4ABA004F62D1 /* HomePageCoordinator.swift */; };
 		C6DA74C62A4B4AC7004F62D1 /* HomePageViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74C52A4B4AC7004F62D1 /* HomePageViewFactory.swift */; };
+		C6DA74C82A4B5BF8004F62D1 /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74C72A4B5BF8004F62D1 /* HomePageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		C6DA74BE2A4B47E5004F62D1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C6DA74C32A4B4ABA004F62D1 /* HomePageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCoordinator.swift; sourceTree = "<group>"; };
 		C6DA74C52A4B4AC7004F62D1 /* HomePageViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewFactory.swift; sourceTree = "<group>"; };
+		C6DA74C72A4B5BF8004F62D1 /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
 		ED46F07732FB6A8A8C49B236 /* Pods-TestOnlineRestaurant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestOnlineRestaurant.release.xcconfig"; path = "Target Support Files/Pods-TestOnlineRestaurant/Pods-TestOnlineRestaurant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				C6DA74B62A4B46E0004F62D1 /* Application */,
 				C6DA74BD2A4B47D8004F62D1 /* Coordinator */,
 				C6DA74B72A4B46F4004F62D1 /* Screens */,
+				C6DA74C92A4B5C90004F62D1 /* Helpers */,
 				C6DA74BA2A4B4762004F62D1 /* Resources */,
 				C6DA74B02A4B452E004F62D1 /* Info.plist */,
 			);
@@ -155,8 +158,16 @@
 		C6DA74C22A4B4AAC004F62D1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				C6DA74C72A4B5BF8004F62D1 /* HomePageTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		C6DA74C92A4B5C90004F62D1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6DA74A72A4B452D004F62D1 /* HomePageViewController.swift in Sources */,
+				C6DA74C82A4B5BF8004F62D1 /* HomePageTableViewCell.swift in Sources */,
 				C6DA74C42A4B4ABA004F62D1 /* HomePageCoordinator.swift in Sources */,
 				C6DA74B92A4B4712004F62D1 /* TabBarController.swift in Sources */,
 				C6DA74BF2A4B47E5004F62D1 /* Coordinator.swift in Sources */,
