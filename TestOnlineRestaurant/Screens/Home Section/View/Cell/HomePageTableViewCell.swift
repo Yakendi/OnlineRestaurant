@@ -33,7 +33,8 @@ final class HomePageTableViewCell: UITableViewCell {
     
     private let categoryNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Jkjvsv dsvksd"
+        label.font = Constants.Fonts.heading
+        label.text = "Пекарни и кондитерские"
         label.numberOfLines = 0
         return label
     }()
