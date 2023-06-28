@@ -29,6 +29,9 @@
 		C6DA74EA2A4C1784004F62D1 /* BagPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74E92A4C1784004F62D1 /* BagPageCoordinator.swift */; };
 		C6DA74EC2A4C178E004F62D1 /* BagPageViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74EB2A4C178E004F62D1 /* BagPageViewFactory.swift */; };
 		C6DA74EF2A4C17A1004F62D1 /* BagPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74EE2A4C17A1004F62D1 /* BagPageViewController.swift */; };
+		C6DA74F22A4C1977004F62D1 /* AccountPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74F12A4C1977004F62D1 /* AccountPageCoordinator.swift */; };
+		C6DA74F42A4C1985004F62D1 /* AccountPageViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74F32A4C1985004F62D1 /* AccountPageViewFactory.swift */; };
+		C6DA74F72A4C1994004F62D1 /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74F62A4C1994004F62D1 /* AccountPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		C6DA74E92A4C1784004F62D1 /* BagPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagPageCoordinator.swift; sourceTree = "<group>"; };
 		C6DA74EB2A4C178E004F62D1 /* BagPageViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagPageViewFactory.swift; sourceTree = "<group>"; };
 		C6DA74EE2A4C17A1004F62D1 /* BagPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagPageViewController.swift; sourceTree = "<group>"; };
+		C6DA74F12A4C1977004F62D1 /* AccountPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageCoordinator.swift; sourceTree = "<group>"; };
+		C6DA74F32A4C1985004F62D1 /* AccountPageViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewFactory.swift; sourceTree = "<group>"; };
+		C6DA74F62A4C1994004F62D1 /* AccountPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
 		ED46F07732FB6A8A8C49B236 /* Pods-TestOnlineRestaurant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestOnlineRestaurant.release.xcconfig"; path = "Target Support Files/Pods-TestOnlineRestaurant/Pods-TestOnlineRestaurant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +143,7 @@
 				C6DA74C02A4B4A6D004F62D1 /* Home Section */,
 				C6DA74E02A4C1118004F62D1 /* Search Section */,
 				C6DA74E82A4C176E004F62D1 /* Bag Section */,
+				C6DA74F02A4C195D004F62D1 /* Account Section */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -236,6 +243,24 @@
 			isa = PBXGroup;
 			children = (
 				C6DA74EE2A4C17A1004F62D1 /* BagPageViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C6DA74F02A4C195D004F62D1 /* Account Section */ = {
+			isa = PBXGroup;
+			children = (
+				C6DA74F12A4C1977004F62D1 /* AccountPageCoordinator.swift */,
+				C6DA74F32A4C1985004F62D1 /* AccountPageViewFactory.swift */,
+				C6DA74F52A4C1988004F62D1 /* View */,
+			);
+			path = "Account Section";
+			sourceTree = "<group>";
+		};
+		C6DA74F52A4C1988004F62D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6DA74F62A4C1994004F62D1 /* AccountPageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -357,10 +382,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DA74F22A4C1977004F62D1 /* AccountPageCoordinator.swift in Sources */,
 				C6DA74A72A4B452D004F62D1 /* HomePageViewController.swift in Sources */,
 				C6DA74C82A4B5BF8004F62D1 /* HomePageTableViewCell.swift in Sources */,
 				C6DA74C42A4B4ABA004F62D1 /* HomePageCoordinator.swift in Sources */,
 				C6DA74EC2A4C178E004F62D1 /* BagPageViewFactory.swift in Sources */,
+				C6DA74F72A4C1994004F62D1 /* AccountPageViewController.swift in Sources */,
 				C6DA74B92A4B4712004F62D1 /* TabBarController.swift in Sources */,
 				C6DA74E52A4C1161004F62D1 /* SearchPageViewFactory.swift in Sources */,
 				C6DA74BF2A4B47E5004F62D1 /* Coordinator.swift in Sources */,
@@ -370,6 +397,7 @@
 				C6DA74C62A4B4AC7004F62D1 /* HomePageViewFactory.swift in Sources */,
 				C6DA74E32A4C114B004F62D1 /* SearchPageCoordinator.swift in Sources */,
 				C6DA74EF2A4C17A1004F62D1 /* BagPageViewController.swift in Sources */,
+				C6DA74F42A4C1985004F62D1 /* AccountPageViewFactory.swift in Sources */,
 				C6DA74A32A4B452D004F62D1 /* AppDelegate.swift in Sources */,
 				C6DA74EA2A4C1784004F62D1 /* BagPageCoordinator.swift in Sources */,
 				C6DA74A52A4B452D004F62D1 /* SceneDelegate.swift in Sources */,

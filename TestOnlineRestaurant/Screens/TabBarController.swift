@@ -11,6 +11,7 @@ enum TabBarItems {
     case homePage
     case searchPage
     case bagPage
+    case accountPage
     
     var title: String {
         switch self {
@@ -20,6 +21,8 @@ enum TabBarItems {
             return "Поиск"
         case .bagPage:
             return "Корзина"
+        case .accountPage:
+            return "Аккаунт"
         }
     }
     
@@ -31,6 +34,8 @@ enum TabBarItems {
             return UIImage(named: "searchPage") ?? UIImage()
         case .bagPage:
             return UIImage(named: "bagPage") ?? UIImage()
+        case .accountPage:
+            return UIImage(named: "profilePage") ?? UIImage()
         }
     }
 }
@@ -41,6 +46,7 @@ final class TabBarController: UITabBarController {
     let homePage = HomePageCoordinator()
     let searchPage = SearchPageCoordinator()
     let bagPage = BagPageCoordinator()
+    let accountPage = AccountPageCoordinator()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -72,6 +78,12 @@ private extension TabBarController {
             tag: 3
         )
         
-        setViewControllers([homePage.navigationController, searchPage.navigationController, bagPage.navigationController], animated: true)
+        accountPage.navigationController.tabBarItem = UITabBarItem(
+            title: TabBarItems.accountPage.title,
+            image: TabBarItems.accountPage.image,
+            tag: 4
+        )
+        
+        setViewControllers([homePage.navigationController, searchPage.navigationController, bagPage.navigationController, accountPage.navigationController], animated: true)
     }
 }
