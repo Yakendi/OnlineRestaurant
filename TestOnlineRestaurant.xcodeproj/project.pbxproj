@@ -23,6 +23,9 @@
 		C6DA74D72A4B6727004F62D1 /* SFPRODISPLAYMEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = C6DA74CE2A4B6726004F62D1 /* SFPRODISPLAYMEDIUM.OTF */; };
 		C6DA74D82A4B6727004F62D1 /* SFPRODISPLAYREGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = C6DA74CF2A4B6726004F62D1 /* SFPRODISPLAYREGULAR.OTF */; };
 		C6DA74DA2A4B6727004F62D1 /* SFPRODISPLAYBOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = C6DA74D12A4B6726004F62D1 /* SFPRODISPLAYBOLD.OTF */; };
+		C6DA74E32A4C114B004F62D1 /* SearchPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74E22A4C114B004F62D1 /* SearchPageCoordinator.swift */; };
+		C6DA74E52A4C1161004F62D1 /* SearchPageViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74E42A4C1161004F62D1 /* SearchPageViewFactory.swift */; };
+		C6DA74E72A4C1175004F62D1 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74E62A4C1175004F62D1 /* SearchPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		C6DA74CE2A4B6726004F62D1 /* SFPRODISPLAYMEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYMEDIUM.OTF; sourceTree = "<group>"; };
 		C6DA74CF2A4B6726004F62D1 /* SFPRODISPLAYREGULAR.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYREGULAR.OTF; sourceTree = "<group>"; };
 		C6DA74D12A4B6726004F62D1 /* SFPRODISPLAYBOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYBOLD.OTF; sourceTree = "<group>"; };
+		C6DA74E22A4C114B004F62D1 /* SearchPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageCoordinator.swift; sourceTree = "<group>"; };
+		C6DA74E42A4C1161004F62D1 /* SearchPageViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewFactory.swift; sourceTree = "<group>"; };
+		C6DA74E62A4C1175004F62D1 /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
 		ED46F07732FB6A8A8C49B236 /* Pods-TestOnlineRestaurant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestOnlineRestaurant.release.xcconfig"; path = "Target Support Files/Pods-TestOnlineRestaurant/Pods-TestOnlineRestaurant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +129,7 @@
 				C6DA74BB2A4B47BE004F62D1 /* AppCoordinator.swift */,
 				C6DA74B82A4B4712004F62D1 /* TabBarController.swift */,
 				C6DA74C02A4B4A6D004F62D1 /* Home Section */,
+				C6DA74E02A4C1118004F62D1 /* Search Section */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -188,6 +195,24 @@
 				C6DA74CF2A4B6726004F62D1 /* SFPRODISPLAYREGULAR.OTF */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C6DA74E02A4C1118004F62D1 /* Search Section */ = {
+			isa = PBXGroup;
+			children = (
+				C6DA74E22A4C114B004F62D1 /* SearchPageCoordinator.swift */,
+				C6DA74E42A4C1161004F62D1 /* SearchPageViewFactory.swift */,
+				C6DA74E12A4C1136004F62D1 /* View */,
+			);
+			path = "Search Section";
+			sourceTree = "<group>";
+		};
+		C6DA74E12A4C1136004F62D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6DA74E62A4C1175004F62D1 /* SearchPageViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,10 +336,13 @@
 				C6DA74C82A4B5BF8004F62D1 /* HomePageTableViewCell.swift in Sources */,
 				C6DA74C42A4B4ABA004F62D1 /* HomePageCoordinator.swift in Sources */,
 				C6DA74B92A4B4712004F62D1 /* TabBarController.swift in Sources */,
+				C6DA74E52A4C1161004F62D1 /* SearchPageViewFactory.swift in Sources */,
 				C6DA74BF2A4B47E5004F62D1 /* Coordinator.swift in Sources */,
 				C6DA74CB2A4B636A004F62D1 /* Constants.swift in Sources */,
 				C6DA74BC2A4B47BE004F62D1 /* AppCoordinator.swift in Sources */,
+				C6DA74E72A4C1175004F62D1 /* SearchPageViewController.swift in Sources */,
 				C6DA74C62A4B4AC7004F62D1 /* HomePageViewFactory.swift in Sources */,
+				C6DA74E32A4C114B004F62D1 /* SearchPageCoordinator.swift in Sources */,
 				C6DA74A32A4B452D004F62D1 /* AppDelegate.swift in Sources */,
 				C6DA74A52A4B452D004F62D1 /* SceneDelegate.swift in Sources */,
 			);

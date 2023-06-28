@@ -1,17 +1,8 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "главная-2.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "главная.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {
