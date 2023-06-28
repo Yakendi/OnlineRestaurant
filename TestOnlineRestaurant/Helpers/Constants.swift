@@ -14,4 +14,10 @@ enum Constants {
             UIFont(name: "SFProDisplay-Regular", size: 20) ?? UIFont()
         }
     }
+    
+    enum Colors {
+        static var mainColor: UIColor {
+            UIColor(hex: "3364E0") ?? UIColor()
+        }
+    }
 }
