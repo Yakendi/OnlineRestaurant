@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class HomePageTableViewCell: UITableViewCell {
     
@@ -26,7 +27,7 @@ final class HomePageTableViewCell: UITableViewCell {
     
     private let categoryImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .systemBlue
+        imageView.backgroundColor = .systemGray6
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -34,7 +35,6 @@ final class HomePageTableViewCell: UITableViewCell {
     private let categoryNameLabel: UILabel = {
         let label = UILabel()
         label.font = Constants.Fonts.heading
-        label.text = "Пекарни и кондитерские"
         label.numberOfLines = 0
         return label
     }()
@@ -43,6 +43,7 @@ final class HomePageTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        self.selectionStyle = .none
         setupViews()
     }
     
@@ -51,8 +52,14 @@ final class HomePageTableViewCell: UITableViewCell {
     }
     
     // MARK: - Configurator
-    func configure() {
+    func configure(_ model: Categories) {
         
+        // image
+        categoryImageView.kf.indicatorType = .activity
+        categoryImageView.kf.setImage(with: URL(string: model.imageURL))
+        
+        // labels
+        categoryNameLabel.text = model.name
     }
 }
 

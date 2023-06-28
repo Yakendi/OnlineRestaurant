@@ -7,4 +7,5 @@ target 'TestOnlineRestaurant' do
 
   # Pods for TestOnlineRestaurant
 pod 'SnapKit'
+pod 'Kingfisher'
 end

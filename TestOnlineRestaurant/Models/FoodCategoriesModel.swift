@@ -8,11 +8,7 @@
 import Foundation
 
 struct FoodCategoriesModel: Codable {
-    let categories: [Categories]
-    
-    private enum CodingKeys: String, CodingKey {
-        case categories = "Categories"
-    }
+    let сategories: [Categories]
 }
 
 struct Categories: Codable {
