@@ -26,6 +26,9 @@
 		C6DA74E32A4C114B004F62D1 /* SearchPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74E22A4C114B004F62D1 /* SearchPageCoordinator.swift */; };
 		C6DA74E52A4C1161004F62D1 /* SearchPageViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74E42A4C1161004F62D1 /* SearchPageViewFactory.swift */; };
 		C6DA74E72A4C1175004F62D1 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74E62A4C1175004F62D1 /* SearchPageViewController.swift */; };
+		C6DA74EA2A4C1784004F62D1 /* BagPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74E92A4C1784004F62D1 /* BagPageCoordinator.swift */; };
+		C6DA74EC2A4C178E004F62D1 /* BagPageViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74EB2A4C178E004F62D1 /* BagPageViewFactory.swift */; };
+		C6DA74EF2A4C17A1004F62D1 /* BagPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74EE2A4C17A1004F62D1 /* BagPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,9 @@
 		C6DA74E22A4C114B004F62D1 /* SearchPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageCoordinator.swift; sourceTree = "<group>"; };
 		C6DA74E42A4C1161004F62D1 /* SearchPageViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewFactory.swift; sourceTree = "<group>"; };
 		C6DA74E62A4C1175004F62D1 /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
+		C6DA74E92A4C1784004F62D1 /* BagPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagPageCoordinator.swift; sourceTree = "<group>"; };
+		C6DA74EB2A4C178E004F62D1 /* BagPageViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagPageViewFactory.swift; sourceTree = "<group>"; };
+		C6DA74EE2A4C17A1004F62D1 /* BagPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagPageViewController.swift; sourceTree = "<group>"; };
 		ED46F07732FB6A8A8C49B236 /* Pods-TestOnlineRestaurant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestOnlineRestaurant.release.xcconfig"; path = "Target Support Files/Pods-TestOnlineRestaurant/Pods-TestOnlineRestaurant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +136,7 @@
 				C6DA74B82A4B4712004F62D1 /* TabBarController.swift */,
 				C6DA74C02A4B4A6D004F62D1 /* Home Section */,
 				C6DA74E02A4C1118004F62D1 /* Search Section */,
+				C6DA74E82A4C176E004F62D1 /* Bag Section */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -211,6 +218,24 @@
 			isa = PBXGroup;
 			children = (
 				C6DA74E62A4C1175004F62D1 /* SearchPageViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C6DA74E82A4C176E004F62D1 /* Bag Section */ = {
+			isa = PBXGroup;
+			children = (
+				C6DA74E92A4C1784004F62D1 /* BagPageCoordinator.swift */,
+				C6DA74EB2A4C178E004F62D1 /* BagPageViewFactory.swift */,
+				C6DA74ED2A4C1794004F62D1 /* View */,
+			);
+			path = "Bag Section";
+			sourceTree = "<group>";
+		};
+		C6DA74ED2A4C1794004F62D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6DA74EE2A4C17A1004F62D1 /* BagPageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,6 +360,7 @@
 				C6DA74A72A4B452D004F62D1 /* HomePageViewController.swift in Sources */,
 				C6DA74C82A4B5BF8004F62D1 /* HomePageTableViewCell.swift in Sources */,
 				C6DA74C42A4B4ABA004F62D1 /* HomePageCoordinator.swift in Sources */,
+				C6DA74EC2A4C178E004F62D1 /* BagPageViewFactory.swift in Sources */,
 				C6DA74B92A4B4712004F62D1 /* TabBarController.swift in Sources */,
 				C6DA74E52A4C1161004F62D1 /* SearchPageViewFactory.swift in Sources */,
 				C6DA74BF2A4B47E5004F62D1 /* Coordinator.swift in Sources */,
@@ -343,7 +369,9 @@
 				C6DA74E72A4C1175004F62D1 /* SearchPageViewController.swift in Sources */,
 				C6DA74C62A4B4AC7004F62D1 /* HomePageViewFactory.swift in Sources */,
 				C6DA74E32A4C114B004F62D1 /* SearchPageCoordinator.swift in Sources */,
+				C6DA74EF2A4C17A1004F62D1 /* BagPageViewController.swift in Sources */,
 				C6DA74A32A4B452D004F62D1 /* AppDelegate.swift in Sources */,
+				C6DA74EA2A4C1784004F62D1 /* BagPageCoordinator.swift in Sources */,
 				C6DA74A52A4B452D004F62D1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
