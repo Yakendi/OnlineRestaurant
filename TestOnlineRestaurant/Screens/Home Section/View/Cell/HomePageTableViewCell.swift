@@ -34,7 +34,7 @@ final class HomePageTableViewCell: UITableViewCell {
     
     private let categoryNameLabel: UILabel = {
         let label = UILabel()
-        label.font = Constants.Fonts.heading
+        label.font = .title
         label.numberOfLines = 0
         return label
     }()

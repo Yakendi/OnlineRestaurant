@@ -16,21 +16,24 @@ final class CategoriesPageCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - UI
+    private let wrapperView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        view.backgroundColor = .dishImageColor
+        return view
+    }()
+    
     private let dishImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 10
-        imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = Constants.Colors.dishImageColor
         return imageView
     }()
     
     private let dishNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.layer.borderWidth = 1
-        label.layer.borderColor = UIColor.blue.cgColor
-        label.font = Constants.Fonts.subtitle
+        label.font = .subtitle
         return label
     }()
     
@@ -59,16 +62,22 @@ final class CategoriesPageCollectionViewCell: UICollectionViewCell {
 // MARK: - Setup views
 private extension CategoriesPageCollectionViewCell {
     func setupViews() {
-        contentView.addSubview(dishImageView)
-        dishImageView.snp.makeConstraints { make in
+        contentView.addSubview(wrapperView)
+        wrapperView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
             make.height.equalTo(contentView.snp.width)
+        }
+        
+        wrapperView.addSubview(dishImageView)
+        dishImageView.snp.makeConstraints { make in
+            make.leading.top.equalToSuperview().offset(10)
+            make.trailing.bottom.equalToSuperview().offset(-10)
         }
         
         contentView.addSubview(dishNameLabel)
         dishNameLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(dishImageView.snp.bottom).offset(5)
+            make.top.equalTo(wrapperView.snp.bottom).offset(5)
         }
     }
 }

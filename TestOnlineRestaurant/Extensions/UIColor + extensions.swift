@@ -8,6 +8,8 @@
 import UIKit
 
 extension UIColor {
+    
+    // MARK: - Hex converter
     convenience init?(hex: String) {
             var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
             hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
@@ -38,4 +40,8 @@ extension UIColor {
             
             self.init(red: red, green: green, blue: blue, alpha: alpha)
         }
+    
+    // MARK: - Custom colors
+    static let mainColor = UIColor(hex: "3364E0")
+    static let dishImageColor = UIColor(hex: "F8F7F5")
 }

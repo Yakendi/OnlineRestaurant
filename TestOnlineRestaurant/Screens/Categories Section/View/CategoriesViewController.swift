@@ -22,7 +22,7 @@ class CategoriesViewController: UIViewController {
         layout.minimumLineSpacing = 14
         layout.itemSize = CGSize(
             width: (view.frame.size.width - 48) / 3,
-            height: 144
+            height: (view.frame.size.width) / 2.55
         )
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(
@@ -84,35 +84,7 @@ extension CategoriesViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesPageCollectionViewCell.identifier, for: indexPath) as! CategoriesPageCollectionViewCell
         let selectedItem = dishesModel[indexPath.item]
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.red.cgColor
         cell.configure(selectedItem)
         return cell
-    }
-}
-
-
-
-
-
-
-
-
-
-import SwiftUI
-
-struct MyProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        func makeUIViewController(context: UIViewControllerRepresentableContext<MyProvider.ContainerView>) -> some CategoriesViewController {
-            return CategoriesViewController()
-        }
-        
-        func updateUIViewController(_ uiViewController: MyProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<MyProvider.ContainerView>) {
-            
-        }
     }
 }
