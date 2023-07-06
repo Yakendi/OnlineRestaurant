@@ -14,4 +14,29 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         self.present(alert, animated: true)
     }
+    
+    func setupNavigationBar() {
+        // Custom back button
+        let backButton = UIImage(named: "backButton")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButton, style: .plain, target: self, action: #selector(backButtonTapped))
+        navigationItem.leftBarButtonItem?.tintColor = .black
+        navigationItem.leftBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        // Profile button
+        let profileButton = UIButton(type: .custom)
+        profileButton.setImage(UIImage(named: "profileImage"), for: .normal)
+        profileButton.snp.makeConstraints { make in
+            make.height.width.equalTo(44)
+        }
+        let profileBarButtonItem = UIBarButtonItem(customView: profileButton)
+        navigationItem.rightBarButtonItem = profileBarButtonItem
+        
+        // Custom title
+        let titleAttributes = [NSAttributedString.Key.font: UIFont.navigationBarTitle]
+        navigationController?.navigationBar.titleTextAttributes = titleAttributes as [NSAttributedString.Key : Any]
+    }
+    
+    @objc private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
 }

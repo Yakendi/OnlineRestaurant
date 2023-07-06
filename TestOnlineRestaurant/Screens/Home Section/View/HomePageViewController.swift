@@ -80,9 +80,8 @@ extension HomePageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = CategoriesPageViewFactory.create()
-//        let model = categoriesModel[indexPath.row]
-//        let title = model.name
-//        self.navigationItem.title = title
+        let model = categoriesModel[indexPath.row].name
+        vc.pageTitle = model
         navigationController?.pushViewController(vc, animated: true)
     }
 }

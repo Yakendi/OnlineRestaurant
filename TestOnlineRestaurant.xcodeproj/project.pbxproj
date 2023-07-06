@@ -11,7 +11,7 @@
 		C6DA74A32A4B452D004F62D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A22A4B452D004F62D1 /* AppDelegate.swift */; };
 		C6DA74A52A4B452D004F62D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A42A4B452D004F62D1 /* SceneDelegate.swift */; };
 		C6DA74A72A4B452D004F62D1 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A62A4B452D004F62D1 /* HomePageViewController.swift */; };
-		C6DA74AC2A4B452E004F62D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DA74AB2A4B452E004F62D1 /* Assets.xcassets */; };
+		C6DA74AC2A4B452E004F62D1 /* HomePageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DA74AB2A4B452E004F62D1 /* HomePageAssets.xcassets */; };
 		C6DA74AF2A4B452E004F62D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DA74AD2A4B452E004F62D1 /* LaunchScreen.storyboard */; };
 		C6DA74B92A4B4712004F62D1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74B82A4B4712004F62D1 /* TabBarController.swift */; };
 		C6DA74BC2A4B47BE004F62D1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74BB2A4B47BE004F62D1 /* AppCoordinator.swift */; };
@@ -41,6 +41,7 @@
 		C6DA750B2A4C2A24004F62D1 /* UIViewController + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA750A2A4C2A24004F62D1 /* UIViewController + extensions.swift */; };
 		C6DA75102A4C5AC0004F62D1 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA750F2A4C5AC0004F62D1 /* CategoriesViewController.swift */; };
 		C6DA75122A4C66E0004F62D1 /* CategoriesPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA75112A4C66E0004F62D1 /* CategoriesPageCollectionViewCell.swift */; };
+		C6DAD9332A4D930F00B2B4FE /* NavigationBarAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DAD9322A4D930F00B2B4FE /* NavigationBarAssets.xcassets */; };
 		C6FDB67F2A4C7782002EDFA3 /* CategoriesPageViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FDB67E2A4C7782002EDFA3 /* CategoriesPageViewFactory.swift */; };
 		C6FDB6812A4C77BF002EDFA3 /* CategoriesPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FDB6802A4C77BF002EDFA3 /* CategoriesPageCoordinator.swift */; };
 		C6FDB6832A4D4C41002EDFA3 /* UIFont + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FDB6822A4D4C41002EDFA3 /* UIFont + extensions.swift */; };
@@ -53,7 +54,7 @@
 		C6DA74A22A4B452D004F62D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DA74A42A4B452D004F62D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C6DA74A62A4B452D004F62D1 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
-		C6DA74AB2A4B452E004F62D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C6DA74AB2A4B452E004F62D1 /* HomePageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HomePageAssets.xcassets; sourceTree = "<group>"; };
 		C6DA74AE2A4B452E004F62D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6DA74B02A4B452E004F62D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6DA74B82A4B4712004F62D1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 		C6DA750A2A4C2A24004F62D1 /* UIViewController + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + extensions.swift"; sourceTree = "<group>"; };
 		C6DA750F2A4C5AC0004F62D1 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		C6DA75112A4C66E0004F62D1 /* CategoriesPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		C6DAD9322A4D930F00B2B4FE /* NavigationBarAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NavigationBarAssets.xcassets; sourceTree = "<group>"; };
 		C6FDB67E2A4C7782002EDFA3 /* CategoriesPageViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPageViewFactory.swift; sourceTree = "<group>"; };
 		C6FDB6802A4C77BF002EDFA3 /* CategoriesPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPageCoordinator.swift; sourceTree = "<group>"; };
 		C6FDB6822A4D4C41002EDFA3 /* UIFont + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + extensions.swift"; sourceTree = "<group>"; };
@@ -181,7 +183,8 @@
 			children = (
 				C6DA74CC2A4B66E8004F62D1 /* Fonts */,
 				C6DA74AD2A4B452E004F62D1 /* LaunchScreen.storyboard */,
-				C6DA74AB2A4B452E004F62D1 /* Assets.xcassets */,
+				C6DA74AB2A4B452E004F62D1 /* HomePageAssets.xcassets */,
+				C6DAD9322A4D930F00B2B4FE /* NavigationBarAssets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -409,8 +412,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DAD9332A4D930F00B2B4FE /* NavigationBarAssets.xcassets in Resources */,
 				C6DA74AF2A4B452E004F62D1 /* LaunchScreen.storyboard in Resources */,
-				C6DA74AC2A4B452E004F62D1 /* Assets.xcassets in Resources */,
+				C6DA74AC2A4B452E004F62D1 /* HomePageAssets.xcassets in Resources */,
 				C6DA74D72A4B6727004F62D1 /* SFPRODISPLAYMEDIUM.OTF in Resources */,
 				C6DA74D82A4B6727004F62D1 /* SFPRODISPLAYREGULAR.OTF in Resources */,
 				C6DA74DA2A4B6727004F62D1 /* SFPRODISPLAYBOLD.OTF in Resources */,

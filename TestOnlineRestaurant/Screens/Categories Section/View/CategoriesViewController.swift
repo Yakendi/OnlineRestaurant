@@ -10,6 +10,13 @@ import SnapKit
 
 class CategoriesViewController: UIViewController {
     
+    // MARK: - Public
+    var pageTitle: String? {
+        didSet {
+            navigationItem.title = pageTitle
+        }
+    }
+    
     // MARK: - Private
     private var dishesModel: [Dishes] = []
     private let network = ServiceFactory.shared
@@ -17,7 +24,7 @@ class CategoriesViewController: UIViewController {
     // MARK: - UI
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 14
         layout.itemSize = CGSize(
@@ -29,6 +36,7 @@ class CategoriesViewController: UIViewController {
             CategoriesPageCollectionViewCell.self,
             forCellWithReuseIdentifier: CategoriesPageCollectionViewCell.identifier
         )
+        collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
     
@@ -36,7 +44,8 @@ class CategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupViews()
+        setup()
+        setupNavigationBar()
         fetchDishesList()
     }
     
@@ -63,14 +72,19 @@ class CategoriesViewController: UIViewController {
 
 // MARK: - Setup views
 private extension CategoriesViewController {
+    func setup() {
+        setupViews()
+        setupNavigationBar()
+    }
+    
     func setupViews() {
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
+        collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
-        collectionView.dataSource = self
-        collectionView.delegate = self
     }
 }
 

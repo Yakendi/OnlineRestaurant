@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import UIKit
 
 final class CategoriesPageCollectionViewCell: UICollectionViewCell {
     
