@@ -27,6 +27,7 @@ class HomePageViewController: UIViewController {
         super.viewDidLoad()
         
         setupViews()
+        setupProfileButton()
         fetchCategories()
     }
     
@@ -60,6 +61,8 @@ private extension HomePageViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: BaseNavigationBar())
     }
 }
 

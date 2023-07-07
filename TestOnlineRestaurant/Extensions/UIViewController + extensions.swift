@@ -16,13 +16,24 @@ extension UIViewController {
     }
     
     func setupNavigationBar() {
-        // Custom back button
+        setupBackButton()
+        setupTitle()
+        setupProfileButton()
+    }
+    
+    func setupBackButton() {
         let backButton = UIImage(named: "backButton")
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButton, style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem?.tintColor = .black
         navigationItem.leftBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        
-        // Profile button
+    }
+    
+    func setupTitle() {
+        let titleAttributes = [NSAttributedString.Key.font: UIFont.navigationBarTitle]
+        navigationController?.navigationBar.titleTextAttributes = titleAttributes as [NSAttributedString.Key : Any]
+    }
+    
+    func setupProfileButton() {
         let profileButton = UIButton(type: .custom)
         profileButton.setImage(UIImage(named: "profileImage"), for: .normal)
         profileButton.snp.makeConstraints { make in
@@ -30,10 +41,6 @@ extension UIViewController {
         }
         let profileBarButtonItem = UIBarButtonItem(customView: profileButton)
         navigationItem.rightBarButtonItem = profileBarButtonItem
-        
-        // Custom title
-        let titleAttributes = [NSAttributedString.Key.font: UIFont.navigationBarTitle]
-        navigationController?.navigationBar.titleTextAttributes = titleAttributes as [NSAttributedString.Key : Any]
     }
     
     @objc private func backButtonTapped() {

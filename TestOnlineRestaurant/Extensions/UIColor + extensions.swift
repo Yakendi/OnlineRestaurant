@@ -44,4 +44,5 @@ extension UIColor {
     // MARK: - Custom colors
     static let mainColor = UIColor(hex: "3364E0")
     static let dishImageColor = UIColor(hex: "F8F7F5")
+    static let subtitleColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
 }
