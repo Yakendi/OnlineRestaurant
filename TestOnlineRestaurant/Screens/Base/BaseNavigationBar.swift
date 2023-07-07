@@ -16,7 +16,7 @@ final class BaseNavigationBar: UIView {
     
     private var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "d MMMM yyyy"
+        formatter.dateFormat = "d MMMM, yyyy"
         formatter.locale = Locale(identifier: "ru_RU")
         return formatter
     }()

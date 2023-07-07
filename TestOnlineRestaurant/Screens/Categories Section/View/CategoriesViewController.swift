@@ -43,7 +43,7 @@ class CategoriesViewController: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setup()
         setupNavigationBar()
         fetchDishesList()
@@ -100,5 +100,12 @@ extension CategoriesViewController: UICollectionViewDataSource, UICollectionView
         let selectedItem = dishesModel[indexPath.item]
         cell.configure(selectedItem)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedItem = dishesModel[indexPath.item]
+        let view = DetailPopUpViewFactory.create()
+        view.fillElements(selectedItem)
+        self.view.addSubview(view)
     }
 }

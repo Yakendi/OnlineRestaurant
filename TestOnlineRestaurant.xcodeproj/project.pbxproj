@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		877329EF8751B2CABE962D2A /* Pods_TestOnlineRestaurant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDC63BEA69C685BDFF0ADA6 /* Pods_TestOnlineRestaurant.framework */; };
 		C6274C102A57DD050069ADA4 /* HomePageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6274C0F2A57DD050069ADA4 /* HomePageAssets.xcassets */; };
+		C6274C132A58408C0069ADA4 /* DetailPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C122A58408C0069ADA4 /* DetailPageCoordinator.swift */; };
+		C6274C152A5840980069ADA4 /* DetailPopUpViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C142A5840980069ADA4 /* DetailPopUpViewFactory.swift */; };
+		C6274C182A5840B40069ADA4 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C172A5840B40069ADA4 /* PopUpView.swift */; };
+		C6274C1B2A587AC90069ADA4 /* DetailPageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6274C1A2A587AC90069ADA4 /* DetailPageAssets.xcassets */; };
 		C6DA74A32A4B452D004F62D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A22A4B452D004F62D1 /* AppDelegate.swift */; };
 		C6DA74A52A4B452D004F62D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A42A4B452D004F62D1 /* SceneDelegate.swift */; };
 		C6DA74A72A4B452D004F62D1 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A62A4B452D004F62D1 /* HomePageViewController.swift */; };
@@ -53,6 +57,10 @@
 		4EDC63BEA69C685BDFF0ADA6 /* Pods_TestOnlineRestaurant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestOnlineRestaurant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		959F60D7543FBFD2407C0674 /* Pods-TestOnlineRestaurant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestOnlineRestaurant.debug.xcconfig"; path = "Target Support Files/Pods-TestOnlineRestaurant/Pods-TestOnlineRestaurant.debug.xcconfig"; sourceTree = "<group>"; };
 		C6274C0F2A57DD050069ADA4 /* HomePageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HomePageAssets.xcassets; sourceTree = "<group>"; };
+		C6274C122A58408C0069ADA4 /* DetailPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageCoordinator.swift; sourceTree = "<group>"; };
+		C6274C142A5840980069ADA4 /* DetailPopUpViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopUpViewFactory.swift; sourceTree = "<group>"; };
+		C6274C172A5840B40069ADA4 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		C6274C1A2A587AC90069ADA4 /* DetailPageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DetailPageAssets.xcassets; sourceTree = "<group>"; };
 		C6DA749F2A4B452D004F62D1 /* TestOnlineRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestOnlineRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DA74A22A4B452D004F62D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DA74A42A4B452D004F62D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +133,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C6274C112A5840460069ADA4 /* Detail Section */ = {
+			isa = PBXGroup;
+			children = (
+				C6274C122A58408C0069ADA4 /* DetailPageCoordinator.swift */,
+				C6274C142A5840980069ADA4 /* DetailPopUpViewFactory.swift */,
+				C6274C162A5840A80069ADA4 /* View */,
+			);
+			path = "Detail Section";
+			sourceTree = "<group>";
+		};
+		C6274C162A5840A80069ADA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6274C172A5840B40069ADA4 /* PopUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C6DA74962A4B452D004F62D1 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +205,7 @@
 				C6DA74E82A4C176E004F62D1 /* Bag Section */,
 				C6DA74F02A4C195D004F62D1 /* Account Section */,
 				C6DA750C2A4C59BC004F62D1 /* Categories Section */,
+				C6274C112A5840460069ADA4 /* Detail Section */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -191,6 +218,7 @@
 				C6DA74AB2A4B452E004F62D1 /* Assets.xcassets */,
 				C6274C0F2A57DD050069ADA4 /* HomePageAssets.xcassets */,
 				C6DAD9322A4D930F00B2B4FE /* NavigationBarAssets.xcassets */,
+				C6274C1A2A587AC90069ADA4 /* DetailPageAssets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -426,6 +454,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6274C1B2A587AC90069ADA4 /* DetailPageAssets.xcassets in Resources */,
 				C6DAD9332A4D930F00B2B4FE /* NavigationBarAssets.xcassets in Resources */,
 				C6DA74AF2A4B452E004F62D1 /* LaunchScreen.storyboard in Resources */,
 				C6274C102A57DD050069ADA4 /* HomePageAssets.xcassets in Resources */,
@@ -485,6 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6274C182A5840B40069ADA4 /* PopUpView.swift in Sources */,
 				C6DA74F22A4C1977004F62D1 /* AccountPageCoordinator.swift in Sources */,
 				C6DA74A72A4B452D004F62D1 /* HomePageViewController.swift in Sources */,
 				C6DA74C82A4B5BF8004F62D1 /* HomePageTableViewCell.swift in Sources */,
@@ -514,8 +544,10 @@
 				C6FDB67F2A4C7782002EDFA3 /* CategoriesPageViewFactory.swift in Sources */,
 				C6DA74EA2A4C1784004F62D1 /* BagPageCoordinator.swift in Sources */,
 				C6DA74A52A4B452D004F62D1 /* SceneDelegate.swift in Sources */,
+				C6274C152A5840980069ADA4 /* DetailPopUpViewFactory.swift in Sources */,
 				C6DA74FF2A4C1EA2004F62D1 /* NetworkEndpoints.swift in Sources */,
 				C6DA75102A4C5AC0004F62D1 /* CategoriesViewController.swift in Sources */,
+				C6274C132A58408C0069ADA4 /* DetailPageCoordinator.swift in Sources */,
 				C6DA750B2A4C2A24004F62D1 /* UIViewController + extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
