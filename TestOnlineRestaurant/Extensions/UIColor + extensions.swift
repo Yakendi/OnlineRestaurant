@@ -47,4 +47,5 @@ extension UIColor {
     static let subtitleColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
     static let subtitleColor2 = UIColor(red: 0, green: 0, blue: 0, alpha: 0.65)
     static let popUpShadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+    static let orderCountColor = UIColor(hex: "EFEEEC")
 }

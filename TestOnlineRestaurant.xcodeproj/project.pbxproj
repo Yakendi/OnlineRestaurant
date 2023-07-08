@@ -13,10 +13,12 @@
 		C6274C152A5840980069ADA4 /* DetailPopUpViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C142A5840980069ADA4 /* DetailPopUpViewFactory.swift */; };
 		C6274C182A5840B40069ADA4 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C172A5840B40069ADA4 /* PopUpView.swift */; };
 		C6274C1B2A587AC90069ADA4 /* DetailPageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6274C1A2A587AC90069ADA4 /* DetailPageAssets.xcassets */; };
+		C6274C1E2A59712D0069ADA4 /* BagPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C1D2A59712D0069ADA4 /* BagPageTableViewCell.swift */; };
+		C6274C202A597DCB0069ADA4 /* BagPageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6274C1F2A597DCB0069ADA4 /* BagPageAssets.xcassets */; };
 		C6DA74A32A4B452D004F62D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A22A4B452D004F62D1 /* AppDelegate.swift */; };
 		C6DA74A52A4B452D004F62D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A42A4B452D004F62D1 /* SceneDelegate.swift */; };
 		C6DA74A72A4B452D004F62D1 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A62A4B452D004F62D1 /* HomePageViewController.swift */; };
-		C6DA74AC2A4B452E004F62D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DA74AB2A4B452E004F62D1 /* Assets.xcassets */; };
+		C6DA74AC2A4B452E004F62D1 /* AppAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DA74AB2A4B452E004F62D1 /* AppAssets.xcassets */; };
 		C6DA74AF2A4B452E004F62D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DA74AD2A4B452E004F62D1 /* LaunchScreen.storyboard */; };
 		C6DA74B92A4B4712004F62D1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74B82A4B4712004F62D1 /* TabBarController.swift */; };
 		C6DA74BC2A4B47BE004F62D1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74BB2A4B47BE004F62D1 /* AppCoordinator.swift */; };
@@ -61,11 +63,13 @@
 		C6274C142A5840980069ADA4 /* DetailPopUpViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopUpViewFactory.swift; sourceTree = "<group>"; };
 		C6274C172A5840B40069ADA4 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		C6274C1A2A587AC90069ADA4 /* DetailPageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DetailPageAssets.xcassets; sourceTree = "<group>"; };
+		C6274C1D2A59712D0069ADA4 /* BagPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagPageTableViewCell.swift; sourceTree = "<group>"; };
+		C6274C1F2A597DCB0069ADA4 /* BagPageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BagPageAssets.xcassets; sourceTree = "<group>"; };
 		C6DA749F2A4B452D004F62D1 /* TestOnlineRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestOnlineRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DA74A22A4B452D004F62D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DA74A42A4B452D004F62D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C6DA74A62A4B452D004F62D1 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
-		C6DA74AB2A4B452E004F62D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C6DA74AB2A4B452E004F62D1 /* AppAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppAssets.xcassets; sourceTree = "<group>"; };
 		C6DA74AE2A4B452E004F62D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6DA74B02A4B452E004F62D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6DA74B82A4B4712004F62D1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -151,6 +155,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C6274C1C2A5971150069ADA4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C6274C1D2A59712D0069ADA4 /* BagPageTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		C6DA74962A4B452D004F62D1 = {
 			isa = PBXGroup;
 			children = (
@@ -215,8 +227,9 @@
 			children = (
 				C6DA74CC2A4B66E8004F62D1 /* Fonts */,
 				C6DA74AD2A4B452E004F62D1 /* LaunchScreen.storyboard */,
-				C6DA74AB2A4B452E004F62D1 /* Assets.xcassets */,
+				C6DA74AB2A4B452E004F62D1 /* AppAssets.xcassets */,
 				C6274C0F2A57DD050069ADA4 /* HomePageAssets.xcassets */,
+				C6274C1F2A597DCB0069ADA4 /* BagPageAssets.xcassets */,
 				C6DAD9322A4D930F00B2B4FE /* NavigationBarAssets.xcassets */,
 				C6274C1A2A587AC90069ADA4 /* DetailPageAssets.xcassets */,
 			);
@@ -299,6 +312,7 @@
 		C6DA74ED2A4C1794004F62D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C6274C1C2A5971150069ADA4 /* Cell */,
 				C6DA74EE2A4C17A1004F62D1 /* BagPageViewController.swift */,
 			);
 			path = View;
@@ -458,8 +472,9 @@
 				C6DAD9332A4D930F00B2B4FE /* NavigationBarAssets.xcassets in Resources */,
 				C6DA74AF2A4B452E004F62D1 /* LaunchScreen.storyboard in Resources */,
 				C6274C102A57DD050069ADA4 /* HomePageAssets.xcassets in Resources */,
-				C6DA74AC2A4B452E004F62D1 /* Assets.xcassets in Resources */,
+				C6DA74AC2A4B452E004F62D1 /* AppAssets.xcassets in Resources */,
 				C6DA74D72A4B6727004F62D1 /* SFPRODISPLAYMEDIUM.OTF in Resources */,
+				C6274C202A597DCB0069ADA4 /* BagPageAssets.xcassets in Resources */,
 				C6DA74D82A4B6727004F62D1 /* SFPRODISPLAYREGULAR.OTF in Resources */,
 				C6DA74DA2A4B6727004F62D1 /* SFPRODISPLAYBOLD.OTF in Resources */,
 			);
@@ -517,6 +532,7 @@
 				C6274C182A5840B40069ADA4 /* PopUpView.swift in Sources */,
 				C6DA74F22A4C1977004F62D1 /* AccountPageCoordinator.swift in Sources */,
 				C6DA74A72A4B452D004F62D1 /* HomePageViewController.swift in Sources */,
+				C6274C1E2A59712D0069ADA4 /* BagPageTableViewCell.swift in Sources */,
 				C6DA74C82A4B5BF8004F62D1 /* HomePageTableViewCell.swift in Sources */,
 				C6DA74C42A4B4ABA004F62D1 /* HomePageCoordinator.swift in Sources */,
 				C6FDB6832A4D4C41002EDFA3 /* UIFont + extensions.swift in Sources */,
