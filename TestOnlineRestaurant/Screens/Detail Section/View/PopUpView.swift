@@ -13,9 +13,16 @@ final class PopUpView: UIView {
     
     // MARK: - Public
 //    var model: Dishes!
+    private let moveToBagManager = MoveToBagManager.shared
     
     // MARK: - UI
-    private let wrapperView: UIView = {
+    private let backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .popUpShadowColor
+        return view
+    }()
+    
+    private let contentView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 15
         view.backgroundColor = .systemBackground
@@ -70,6 +77,7 @@ final class PopUpView: UIView {
     // buttons
     private let addToBagButton: UIButton = {
         let button = UIButton()
+        button.addTarget(self, action: #selector(addToBagButtonAction), for: .touchUpInside)
         button.backgroundColor = .mainColor
         button.layer.cornerRadius = 10
         button.setTitle("Добавить в корзину", for: .normal)
@@ -94,9 +102,8 @@ final class PopUpView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.frame = UIScreen.main.bounds
-        backgroundColor = .popUpShadowColor
         
-        setupViews()
+        setup()
     }
     
     required init?(coder: NSCoder) {
@@ -112,26 +119,44 @@ final class PopUpView: UIView {
         dishNameLabel.text = model.name
         dishPriceLabel.text = "\(model.price)₽"
         dishWeightLabel.text = "· \(model.weight)г"
-        dishDescriptionLabel.text = model.description
+        dishDescriptionLabel.text = model.desscription
+    }
+    
+    @objc func addToBagButtonAction() {
+//        let model: Dishes!
+//        moveToBagManager.addToBag(model)
     }
     
     @objc private func dismiss() {
         removeFromSuperview()
     }
+    
+    func show() {
+        UIApplication.shared.keyWindow?.addSubview(self)
+    }
 }
 
 // MARK: - Setup views
 private extension PopUpView {
+    func setup() {
+        setupViews()
+        setupGestureRecognizer()
+    }
     func setupViews() {
-        addSubview(wrapperView)
-        wrapperView.snp.makeConstraints { make in
+        addSubview(backgroundView)
+        backgroundView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        addSubview(contentView)
+        contentView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             
         }
         
-        wrapperView.addSubview(imageWrapperView)
+        contentView.addSubview(imageWrapperView)
         imageWrapperView.snp.makeConstraints { make in
             make.leading.top.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
@@ -160,38 +185,47 @@ private extension PopUpView {
             make.height.width.equalTo(40)
         }
         
-        wrapperView.addSubview(dishNameLabel)
+        contentView.addSubview(dishNameLabel)
         dishNameLabel.snp.makeConstraints { make in
             make.leading.equalTo(imageWrapperView.snp.leading)
             make.top.equalTo(imageWrapperView.snp.bottom).offset(8)
             make.trailing.equalTo(imageWrapperView.snp.trailing)
         }
         
-        wrapperView.addSubview(dishPriceLabel)
+        contentView.addSubview(dishPriceLabel)
         dishPriceLabel.snp.makeConstraints { make in
             make.leading.equalTo(dishNameLabel.snp.leading)
             make.top.equalTo(dishNameLabel.snp.bottom).offset(8)
         }
 
-        wrapperView.addSubview(dishWeightLabel)
+        contentView.addSubview(dishWeightLabel)
         dishWeightLabel.snp.makeConstraints { make in
             make.leading.equalTo(dishPriceLabel.snp.trailing).offset(3)
             make.top.equalTo(dishPriceLabel.snp.top)
         }
         
-        wrapperView.addSubview(dishDescriptionLabel)
+        contentView.addSubview(dishDescriptionLabel)
         dishDescriptionLabel.snp.makeConstraints { make in
             make.leading.equalTo(imageWrapperView.snp.leading)
             make.top.equalTo(dishPriceLabel.snp.bottom).offset(8)
             make.trailing.equalTo(imageWrapperView.snp.trailing)
         }
         
-        wrapperView.addSubview(addToBagButton)
+        contentView.addSubview(addToBagButton)
         addToBagButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalTo(dishDescriptionLabel.snp.bottom).offset(16)
             make.trailing.bottom.equalToSuperview().offset(-16)
             make.height.equalTo(48)
         }
+    }
+    
+    func setupGestureRecognizer() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        backgroundView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func handleTap() {
+        removeFromSuperview()
     }
 }

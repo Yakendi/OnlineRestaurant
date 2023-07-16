@@ -16,11 +16,12 @@ struct Dishes: Codable {
     let name: String
     let price: Int
     let weight: Int
-    let description: String
+    let desscription: String
     let imageURL: String
     
     private enum CodingKeys: String, CodingKey {
-        case id, name, price, weight, description
+        case id, name, price, weight
+        case desscription = "description"
         case imageURL = "image_url"
     }
 }

@@ -106,6 +106,6 @@ extension CategoriesViewController: UICollectionViewDataSource, UICollectionView
         let selectedItem = dishesModel[indexPath.item]
         let view = DetailPopUpViewFactory.create()
         view.fillElements(selectedItem)
-        self.view.addSubview(view)
+        view.show()
     }
 }

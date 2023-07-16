@@ -15,6 +15,12 @@
 		C6274C1B2A587AC90069ADA4 /* DetailPageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6274C1A2A587AC90069ADA4 /* DetailPageAssets.xcassets */; };
 		C6274C1E2A59712D0069ADA4 /* BagPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C1D2A59712D0069ADA4 /* BagPageTableViewCell.swift */; };
 		C6274C202A597DCB0069ADA4 /* BagPageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6274C1F2A597DCB0069ADA4 /* BagPageAssets.xcassets */; };
+		C6274C262A5AA5B30069ADA4 /* OrderModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6274C242A5AA5B30069ADA4 /* OrderModel.xcdatamodeld */; };
+		C6274C2E2A5AA85A0069ADA4 /* OrderModelEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C2C2A5AA85A0069ADA4 /* OrderModelEntity+CoreDataClass.swift */; };
+		C6274C2F2A5AA85A0069ADA4 /* OrderModelEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C2D2A5AA85A0069ADA4 /* OrderModelEntity+CoreDataProperties.swift */; };
+		C6274C312A5AA8770069ADA4 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C302A5AA8770069ADA4 /* DataBaseManager.swift */; };
+		C6274C342A5AABE90069ADA4 /* MoveToBagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C332A5AABE90069ADA4 /* MoveToBagManager.swift */; };
+		C67BB89C2A63EA5900D4D60F /* UIApplication + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67BB89B2A63EA5900D4D60F /* UIApplication + extensions.swift */; };
 		C6DA74A32A4B452D004F62D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A22A4B452D004F62D1 /* AppDelegate.swift */; };
 		C6DA74A52A4B452D004F62D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A42A4B452D004F62D1 /* SceneDelegate.swift */; };
 		C6DA74A72A4B452D004F62D1 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A62A4B452D004F62D1 /* HomePageViewController.swift */; };
@@ -65,6 +71,12 @@
 		C6274C1A2A587AC90069ADA4 /* DetailPageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DetailPageAssets.xcassets; sourceTree = "<group>"; };
 		C6274C1D2A59712D0069ADA4 /* BagPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagPageTableViewCell.swift; sourceTree = "<group>"; };
 		C6274C1F2A597DCB0069ADA4 /* BagPageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BagPageAssets.xcassets; sourceTree = "<group>"; };
+		C6274C252A5AA5B30069ADA4 /* OrderModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OrderModel.xcdatamodel; sourceTree = "<group>"; };
+		C6274C2C2A5AA85A0069ADA4 /* OrderModelEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderModelEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C6274C2D2A5AA85A0069ADA4 /* OrderModelEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderModelEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		C6274C302A5AA8770069ADA4 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		C6274C332A5AABE90069ADA4 /* MoveToBagManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToBagManager.swift; sourceTree = "<group>"; };
+		C67BB89B2A63EA5900D4D60F /* UIApplication + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + extensions.swift"; sourceTree = "<group>"; };
 		C6DA749F2A4B452D004F62D1 /* TestOnlineRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestOnlineRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DA74A22A4B452D004F62D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DA74A42A4B452D004F62D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +175,52 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		C6274C212A5AA4FD0069ADA4 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				C6274C272A5AA7EC0069ADA4 /* Model */,
+				C6274C302A5AA8770069ADA4 /* DataBaseManager.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		C6274C222A5AA58A0069ADA4 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C6DA74AB2A4B452E004F62D1 /* AppAssets.xcassets */,
+				C6274C0F2A57DD050069ADA4 /* HomePageAssets.xcassets */,
+				C6274C1F2A597DCB0069ADA4 /* BagPageAssets.xcassets */,
+				C6DAD9322A4D930F00B2B4FE /* NavigationBarAssets.xcassets */,
+				C6274C1A2A587AC90069ADA4 /* DetailPageAssets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		C6274C232A5AA59C0069ADA4 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C6274C242A5AA5B30069ADA4 /* OrderModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C6274C272A5AA7EC0069ADA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C6274C2C2A5AA85A0069ADA4 /* OrderModelEntity+CoreDataClass.swift */,
+				C6274C2D2A5AA85A0069ADA4 /* OrderModelEntity+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C6274C322A5AABBC0069ADA4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C6274C332A5AABE90069ADA4 /* MoveToBagManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		C6DA74962A4B452D004F62D1 = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +247,8 @@
 				C6DA75022A4C23B3004F62D1 /* Models */,
 				C6DA74BD2A4B47D8004F62D1 /* Core */,
 				C6DA75072A4C26EA004F62D1 /* Services */,
+				C6274C322A5AABBC0069ADA4 /* Managers */,
+				C6274C212A5AA4FD0069ADA4 /* DataBase */,
 				C6DA74B72A4B46F4004F62D1 /* Screens */,
 				C6DA74F82A4C1B94004F62D1 /* Extensions */,
 				C6DA74BA2A4B4762004F62D1 /* Resources */,
@@ -225,13 +285,10 @@
 		C6DA74BA2A4B4762004F62D1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C6274C222A5AA58A0069ADA4 /* Assets */,
 				C6DA74CC2A4B66E8004F62D1 /* Fonts */,
+				C6274C232A5AA59C0069ADA4 /* CoreData */,
 				C6DA74AD2A4B452E004F62D1 /* LaunchScreen.storyboard */,
-				C6DA74AB2A4B452E004F62D1 /* AppAssets.xcassets */,
-				C6274C0F2A57DD050069ADA4 /* HomePageAssets.xcassets */,
-				C6274C1F2A597DCB0069ADA4 /* BagPageAssets.xcassets */,
-				C6DAD9322A4D930F00B2B4FE /* NavigationBarAssets.xcassets */,
-				C6274C1A2A587AC90069ADA4 /* DetailPageAssets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -342,6 +399,7 @@
 				C6DA74F92A4C1BB3004F62D1 /* UIColor + extensions.swift */,
 				C6FDB6822A4D4C41002EDFA3 /* UIFont + extensions.swift */,
 				C6DA750A2A4C2A24004F62D1 /* UIViewController + extensions.swift */,
+				C67BB89B2A63EA5900D4D60F /* UIApplication + extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -532,9 +590,11 @@
 				C6274C182A5840B40069ADA4 /* PopUpView.swift in Sources */,
 				C6DA74F22A4C1977004F62D1 /* AccountPageCoordinator.swift in Sources */,
 				C6DA74A72A4B452D004F62D1 /* HomePageViewController.swift in Sources */,
+				C6274C262A5AA5B30069ADA4 /* OrderModel.xcdatamodeld in Sources */,
 				C6274C1E2A59712D0069ADA4 /* BagPageTableViewCell.swift in Sources */,
 				C6DA74C82A4B5BF8004F62D1 /* HomePageTableViewCell.swift in Sources */,
 				C6DA74C42A4B4ABA004F62D1 /* HomePageCoordinator.swift in Sources */,
+				C6274C342A5AABE90069ADA4 /* MoveToBagManager.swift in Sources */,
 				C6FDB6832A4D4C41002EDFA3 /* UIFont + extensions.swift in Sources */,
 				C6DA74EC2A4C178E004F62D1 /* BagPageViewFactory.swift in Sources */,
 				C6DA75012A4C1EB6004F62D1 /* NetworkErrorTypes.swift in Sources */,
@@ -542,6 +602,7 @@
 				C6DA74F72A4C1994004F62D1 /* AccountPageViewController.swift in Sources */,
 				C6DA74B92A4B4712004F62D1 /* TabBarController.swift in Sources */,
 				C6DA74E52A4C1161004F62D1 /* SearchPageViewFactory.swift in Sources */,
+				C6274C2F2A5AA85A0069ADA4 /* OrderModelEntity+CoreDataProperties.swift in Sources */,
 				C6DA75122A4C66E0004F62D1 /* CategoriesPageCollectionViewCell.swift in Sources */,
 				C6DA74BF2A4B47E5004F62D1 /* Coordinator.swift in Sources */,
 				C6DA74FD2A4C1E91004F62D1 /* NetworkLayer.swift in Sources */,
@@ -549,7 +610,9 @@
 				C6DA74BC2A4B47BE004F62D1 /* AppCoordinator.swift in Sources */,
 				C6DA74E72A4C1175004F62D1 /* SearchPageViewController.swift in Sources */,
 				C6DA75042A4C23CB004F62D1 /* FoodCategoriesModel.swift in Sources */,
+				C6274C2E2A5AA85A0069ADA4 /* OrderModelEntity+CoreDataClass.swift in Sources */,
 				C6DAD9392A56DA5600B2B4FE /* BaseNavigationBar.swift in Sources */,
+				C6274C312A5AA8770069ADA4 /* DataBaseManager.swift in Sources */,
 				C6DA74C62A4B4AC7004F62D1 /* HomePageViewFactory.swift in Sources */,
 				C6DA75062A4C23D3004F62D1 /* DishesModel.swift in Sources */,
 				C6DA75092A4C2728004F62D1 /* ServiceFactory.swift in Sources */,
@@ -560,6 +623,7 @@
 				C6FDB67F2A4C7782002EDFA3 /* CategoriesPageViewFactory.swift in Sources */,
 				C6DA74EA2A4C1784004F62D1 /* BagPageCoordinator.swift in Sources */,
 				C6DA74A52A4B452D004F62D1 /* SceneDelegate.swift in Sources */,
+				C67BB89C2A63EA5900D4D60F /* UIApplication + extensions.swift in Sources */,
 				C6274C152A5840980069ADA4 /* DetailPopUpViewFactory.swift in Sources */,
 				C6DA74FF2A4C1EA2004F62D1 /* NetworkEndpoints.swift in Sources */,
 				C6DA75102A4C5AC0004F62D1 /* CategoriesViewController.swift in Sources */,
@@ -772,6 +836,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C6274C242A5AA5B30069ADA4 /* OrderModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C6274C252A5AA5B30069ADA4 /* OrderModel.xcdatamodel */,
+			);
+			currentVersion = C6274C252A5AA5B30069ADA4 /* OrderModel.xcdatamodel */;
+			path = OrderModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C6DA74972A4B452D004F62D1 /* Project object */;
 }

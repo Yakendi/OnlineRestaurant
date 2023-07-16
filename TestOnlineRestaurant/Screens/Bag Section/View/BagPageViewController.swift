@@ -12,6 +12,7 @@ final class BagPageViewController: UIViewController {
     
     // MARK: - Private
     private var bagModel: [Dishes] = []
+    private let moveToBagManager = MoveToBagManager.shared
     
     // MARK: - UI
     private let tableView: UITableView = {
@@ -26,7 +27,7 @@ final class BagPageViewController: UIViewController {
         return tableView
     }()
     
-    private let payButton: UIButton = {
+    private let orderButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 10
         button.backgroundColor = .mainColor
@@ -55,9 +56,10 @@ private extension BagPageViewController {
         }
         tableView.dataSource = self
         tableView.delegate = self
+        moveToBagManager.delegate = self
         
-        view.addSubview(payButton)
-        payButton.snp.makeConstraints { make in
+        view.addSubview(orderButton)
+        orderButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.trailing.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
             make.height.equalTo(48)
@@ -68,11 +70,24 @@ private extension BagPageViewController {
 // MARK: - Table view data source and delegate
 extension BagPageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+//        moveToBagManager.orderListArray.count
+        if bagModel.count == 0 {
+            orderButton.isHidden = true
+        }
+        return bagModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BagPageTableViewCell.identifier, for: indexPath) as! BagPageTableViewCell
+//        let model = moveToBagManager.orderListArray[indexPath.row]
+//        cell.configure(model)
         return cell
+    }
+}
+
+// MARK: - MoveToBagDelegate
+extension BagPageViewController: MoveToBagManagerDelegate {
+    func updateOrderList() {
+        self.tableView.reloadData()
     }
 }
