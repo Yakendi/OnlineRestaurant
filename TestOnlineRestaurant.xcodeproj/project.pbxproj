@@ -21,9 +21,9 @@
 		C6274C312A5AA8770069ADA4 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C302A5AA8770069ADA4 /* DataBaseManager.swift */; };
 		C6274C342A5AABE90069ADA4 /* MoveToBagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C332A5AABE90069ADA4 /* MoveToBagManager.swift */; };
 		C67BB89C2A63EA5900D4D60F /* UIApplication + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67BB89B2A63EA5900D4D60F /* UIApplication + extensions.swift */; };
-		C67BB8AC2A65A66800D4D60F /* BagPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67BB8AB2A65A66800D4D60F /* BagPageViewModel.swift */; };
 		C67BB8AF2A65A6D400D4D60F /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67BB8AE2A65A6D400D4D60F /* HomePageViewModel.swift */; };
 		C67BB8B22A65A71500D4D60F /* CategoriesPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67BB8B12A65A71500D4D60F /* CategoriesPageViewModel.swift */; };
+		C67BB8B52A65A81200D4D60F /* BagPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67BB8B42A65A81200D4D60F /* BagPageViewModel.swift */; };
 		C6DA74A32A4B452D004F62D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A22A4B452D004F62D1 /* AppDelegate.swift */; };
 		C6DA74A52A4B452D004F62D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A42A4B452D004F62D1 /* SceneDelegate.swift */; };
 		C6DA74A72A4B452D004F62D1 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A62A4B452D004F62D1 /* HomePageViewController.swift */; };
@@ -80,9 +80,9 @@
 		C6274C302A5AA8770069ADA4 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		C6274C332A5AABE90069ADA4 /* MoveToBagManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToBagManager.swift; sourceTree = "<group>"; };
 		C67BB89B2A63EA5900D4D60F /* UIApplication + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + extensions.swift"; sourceTree = "<group>"; };
-		C67BB8AB2A65A66800D4D60F /* BagPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BagPageViewModel.swift; path = "../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/OnlineRestaurant 19.36.44/TestOnlineRestaurant/Screens/Bag Section/Business Logic/BagPageViewModel.swift"; sourceTree = "<group>"; };
 		C67BB8AE2A65A6D400D4D60F /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 		C67BB8B12A65A71500D4D60F /* CategoriesPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPageViewModel.swift; sourceTree = "<group>"; };
+		C67BB8B42A65A81200D4D60F /* BagPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagPageViewModel.swift; sourceTree = "<group>"; };
 		C6DA749F2A4B452D004F62D1 /* TestOnlineRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestOnlineRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DA74A22A4B452D004F62D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DA74A42A4B452D004F62D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -227,14 +227,6 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		C67BB8AA2A65A64A00D4D60F /* Business Logic */ = {
-			isa = PBXGroup;
-			children = (
-				C67BB8AB2A65A66800D4D60F /* BagPageViewModel.swift */,
-			);
-			path = "Business Logic";
-			sourceTree = "<group>";
-		};
 		C67BB8AD2A65A6BE00D4D60F /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +239,14 @@
 			isa = PBXGroup;
 			children = (
 				C67BB8B12A65A71500D4D60F /* CategoriesPageViewModel.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		C67BB8B32A65A80000D4D60F /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C67BB8B42A65A81200D4D60F /* BagPageViewModel.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -393,7 +393,7 @@
 				C6DA74E92A4C1784004F62D1 /* BagPageCoordinator.swift */,
 				C6DA74EB2A4C178E004F62D1 /* BagPageViewFactory.swift */,
 				C6DA74ED2A4C1794004F62D1 /* View */,
-				C67BB8AA2A65A64A00D4D60F /* Business Logic */,
+				C67BB8B32A65A80000D4D60F /* Business Logic */,
 			);
 			path = "Bag Section";
 			sourceTree = "<group>";
@@ -654,7 +654,6 @@
 				C6DA74EF2A4C17A1004F62D1 /* BagPageViewController.swift in Sources */,
 				C6DA74F42A4C1985004F62D1 /* AccountPageViewFactory.swift in Sources */,
 				C67BB8AF2A65A6D400D4D60F /* HomePageViewModel.swift in Sources */,
-				C67BB8AC2A65A66800D4D60F /* BagPageViewModel.swift in Sources */,
 				C6DA74A32A4B452D004F62D1 /* AppDelegate.swift in Sources */,
 				C6FDB67F2A4C7782002EDFA3 /* CategoriesPageViewFactory.swift in Sources */,
 				C6DA74EA2A4C1784004F62D1 /* BagPageCoordinator.swift in Sources */,
@@ -663,6 +662,7 @@
 				C6274C152A5840980069ADA4 /* DetailPopUpViewFactory.swift in Sources */,
 				C6DA74FF2A4C1EA2004F62D1 /* NetworkEndpoints.swift in Sources */,
 				C6DA75102A4C5AC0004F62D1 /* CategoriesViewController.swift in Sources */,
+				C67BB8B52A65A81200D4D60F /* BagPageViewModel.swift in Sources */,
 				C6274C132A58408C0069ADA4 /* DetailPageCoordinator.swift in Sources */,
 				C6DA750B2A4C2A24004F62D1 /* UIViewController + extensions.swift in Sources */,
 			);
