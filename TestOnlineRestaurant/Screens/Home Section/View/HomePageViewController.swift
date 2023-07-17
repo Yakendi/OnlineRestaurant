@@ -8,12 +8,11 @@
 import UIKit
 import SnapKit
 
-class HomePageViewController: UIViewController {
+final class HomePageViewController: UIViewController {
     
     // MARK: - Private
-    private var categoriesModel: [Categories] = []
-    private let network = ServiceFactory.shared
-
+    private var viewModel: HomePageViewModel!
+    
     // MARK: - UI
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -23,36 +22,22 @@ class HomePageViewController: UIViewController {
         return tableView
     }()
     
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupViews()
-        setupProfileButton()
-        fetchCategories()
-    }
-    
-    // MARK: - Networking
-    func fetchCategories() {
-        network.allCategories { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let data):
-                self.categoriesModel = data.сategories
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-                DispatchQueue.main.async {
-                    self.showAlert(title: NetworkErrorTypes.emptyData.errorDescription ?? "Error")
-                }
-            }
-        }
+        setup()
     }
 }
 
-// MARK: - Setup views
+// MARK: - Setup
 private extension HomePageViewController {
+    func setup() {
+        setupViews()
+        setupViewModel()
+        setupProfileButton()
+    }
+    
     func setupViews() {
         view.backgroundColor = .systemBackground
         view.addSubview(tableView)
@@ -64,18 +49,36 @@ private extension HomePageViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: BaseNavigationBar())
     }
+    
+    func setupViewModel() {
+        viewModel = HomePageViewModel()
+        
+        viewModel.categoriesDidChange = { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        viewModel.showError = { [weak self] error in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.showAlert(title: NetworkErrorTypes.emptyData.localizedDescription)
+            }
+        }
+        viewModel.fetchCategories()
+    }
 }
 
 // MARK: - Table view data source and delegate
 extension HomePageViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        categoriesModel.count
+        return viewModel.categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomePageTableViewCell.identifier, for: indexPath) as! HomePageTableViewCell
-        let selectedItem = categoriesModel[indexPath.row]
+        let selectedItem = viewModel.categories[indexPath.row]
         cell.configure(selectedItem)
         return cell
     }
@@ -83,7 +86,7 @@ extension HomePageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = CategoriesPageViewFactory.create()
-        let model = categoriesModel[indexPath.row].name
+        let model = viewModel.categories[indexPath.row].name
         vc.pageTitle = model
         navigationController?.pushViewController(vc, animated: true)
     }

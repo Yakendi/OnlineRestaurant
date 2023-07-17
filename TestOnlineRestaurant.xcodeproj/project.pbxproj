@@ -21,6 +21,9 @@
 		C6274C312A5AA8770069ADA4 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C302A5AA8770069ADA4 /* DataBaseManager.swift */; };
 		C6274C342A5AABE90069ADA4 /* MoveToBagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6274C332A5AABE90069ADA4 /* MoveToBagManager.swift */; };
 		C67BB89C2A63EA5900D4D60F /* UIApplication + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67BB89B2A63EA5900D4D60F /* UIApplication + extensions.swift */; };
+		C67BB8AC2A65A66800D4D60F /* BagPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67BB8AB2A65A66800D4D60F /* BagPageViewModel.swift */; };
+		C67BB8AF2A65A6D400D4D60F /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67BB8AE2A65A6D400D4D60F /* HomePageViewModel.swift */; };
+		C67BB8B22A65A71500D4D60F /* CategoriesPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67BB8B12A65A71500D4D60F /* CategoriesPageViewModel.swift */; };
 		C6DA74A32A4B452D004F62D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A22A4B452D004F62D1 /* AppDelegate.swift */; };
 		C6DA74A52A4B452D004F62D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A42A4B452D004F62D1 /* SceneDelegate.swift */; };
 		C6DA74A72A4B452D004F62D1 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA74A62A4B452D004F62D1 /* HomePageViewController.swift */; };
@@ -77,6 +80,9 @@
 		C6274C302A5AA8770069ADA4 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		C6274C332A5AABE90069ADA4 /* MoveToBagManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToBagManager.swift; sourceTree = "<group>"; };
 		C67BB89B2A63EA5900D4D60F /* UIApplication + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + extensions.swift"; sourceTree = "<group>"; };
+		C67BB8AB2A65A66800D4D60F /* BagPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BagPageViewModel.swift; path = "../../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/OnlineRestaurant 19.36.44/TestOnlineRestaurant/Screens/Bag Section/Business Logic/BagPageViewModel.swift"; sourceTree = "<group>"; };
+		C67BB8AE2A65A6D400D4D60F /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
+		C67BB8B12A65A71500D4D60F /* CategoriesPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPageViewModel.swift; sourceTree = "<group>"; };
 		C6DA749F2A4B452D004F62D1 /* TestOnlineRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestOnlineRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DA74A22A4B452D004F62D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DA74A42A4B452D004F62D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +227,30 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		C67BB8AA2A65A64A00D4D60F /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C67BB8AB2A65A66800D4D60F /* BagPageViewModel.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		C67BB8AD2A65A6BE00D4D60F /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C67BB8AE2A65A6D400D4D60F /* HomePageViewModel.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		C67BB8B02A65A6F900D4D60F /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C67BB8B12A65A71500D4D60F /* CategoriesPageViewModel.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
 		C6DA74962A4B452D004F62D1 = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +337,7 @@
 				C6DA74C32A4B4ABA004F62D1 /* HomePageCoordinator.swift */,
 				C6DA74C52A4B4AC7004F62D1 /* HomePageViewFactory.swift */,
 				C6DA74C12A4B4A91004F62D1 /* View */,
+				C67BB8AD2A65A6BE00D4D60F /* Business Logic */,
 			);
 			path = "Home Section";
 			sourceTree = "<group>";
@@ -362,6 +393,7 @@
 				C6DA74E92A4C1784004F62D1 /* BagPageCoordinator.swift */,
 				C6DA74EB2A4C178E004F62D1 /* BagPageViewFactory.swift */,
 				C6DA74ED2A4C1794004F62D1 /* View */,
+				C67BB8AA2A65A64A00D4D60F /* Business Logic */,
 			);
 			path = "Bag Section";
 			sourceTree = "<group>";
@@ -437,6 +469,7 @@
 				C6FDB6802A4C77BF002EDFA3 /* CategoriesPageCoordinator.swift */,
 				C6FDB67E2A4C7782002EDFA3 /* CategoriesPageViewFactory.swift */,
 				C6DA750D2A4C59DC004F62D1 /* View */,
+				C67BB8B02A65A6F900D4D60F /* Business Logic */,
 			);
 			path = "Categories Section";
 			sourceTree = "<group>";
@@ -593,6 +626,7 @@
 				C6274C262A5AA5B30069ADA4 /* OrderModel.xcdatamodeld in Sources */,
 				C6274C1E2A59712D0069ADA4 /* BagPageTableViewCell.swift in Sources */,
 				C6DA74C82A4B5BF8004F62D1 /* HomePageTableViewCell.swift in Sources */,
+				C67BB8B22A65A71500D4D60F /* CategoriesPageViewModel.swift in Sources */,
 				C6DA74C42A4B4ABA004F62D1 /* HomePageCoordinator.swift in Sources */,
 				C6274C342A5AABE90069ADA4 /* MoveToBagManager.swift in Sources */,
 				C6FDB6832A4D4C41002EDFA3 /* UIFont + extensions.swift in Sources */,
@@ -619,6 +653,8 @@
 				C6DA74E32A4C114B004F62D1 /* SearchPageCoordinator.swift in Sources */,
 				C6DA74EF2A4C17A1004F62D1 /* BagPageViewController.swift in Sources */,
 				C6DA74F42A4C1985004F62D1 /* AccountPageViewFactory.swift in Sources */,
+				C67BB8AF2A65A6D400D4D60F /* HomePageViewModel.swift in Sources */,
+				C67BB8AC2A65A66800D4D60F /* BagPageViewModel.swift in Sources */,
 				C6DA74A32A4B452D004F62D1 /* AppDelegate.swift in Sources */,
 				C6FDB67F2A4C7782002EDFA3 /* CategoriesPageViewFactory.swift in Sources */,
 				C6DA74EA2A4C1784004F62D1 /* BagPageCoordinator.swift in Sources */,

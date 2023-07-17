@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CategoriesViewController: UIViewController {
+final class CategoriesViewController: UIViewController {
     
     // MARK: - Public
     var pageTitle: String? {
@@ -18,8 +18,7 @@ class CategoriesViewController: UIViewController {
     }
     
     // MARK: - Private
-    private var dishesModel: [Dishes] = []
-    private let network = ServiceFactory.shared
+    private var viewModel: CategoriesPageViewModel!
     
     // MARK: - UI
     private lazy var collectionView: UICollectionView = {
@@ -45,28 +44,6 @@ class CategoriesViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
-        setupNavigationBar()
-        fetchDishesList()
-    }
-    
-    // MARK: - Fetch dishes list
-    func fetchDishesList() {
-        network.allDishes { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let data):
-                self.dishesModel = data.dishes
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-                DispatchQueue.main.async {
-                    self.showAlert(title: NetworkErrorTypes.emptyData.errorDescription ?? "Error")
-                }
-            }
-        }
     }
 }
 
@@ -75,6 +52,7 @@ private extension CategoriesViewController {
     func setup() {
         setupViews()
         setupNavigationBar()
+        setupViewModel()
     }
     
     func setupViews() {
@@ -86,24 +64,43 @@ private extension CategoriesViewController {
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
+    
+    func setupViewModel() {
+        viewModel = CategoriesPageViewModel()
+        
+        viewModel.dishesListDidChange = { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+        viewModel.showError = { [weak self] error in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.showAlert(title: error.localizedDescription)
+            }
+        }
+        
+        viewModel.fetchDishesList()
+    }
 }
 
 // MARK: - Collection view data source and delegate
 extension CategoriesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dishesModel.count
+        viewModel.dishesList.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesPageCollectionViewCell.identifier, for: indexPath) as! CategoriesPageCollectionViewCell
-        let selectedItem = dishesModel[indexPath.item]
+        let selectedItem = viewModel.dishesList[indexPath.item]
         cell.configure(selectedItem)
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedItem = dishesModel[indexPath.item]
+        let selectedItem = viewModel.dishesList[indexPath.item]
         let view = DetailPopUpViewFactory.create()
         view.fillElements(selectedItem)
         view.show()

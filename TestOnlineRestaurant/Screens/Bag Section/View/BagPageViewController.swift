@@ -11,8 +11,7 @@ import SnapKit
 final class BagPageViewController: UIViewController {
     
     // MARK: - Private
-    private var bagModel: [Dishes] = []
-    private let moveToBagManager = MoveToBagManager.shared
+    private var viewModel: BagPageViewModel!
     
     // MARK: - UI
     private let tableView: UITableView = {
@@ -36,27 +35,33 @@ final class BagPageViewController: UIViewController {
         return button
     }()
     
-    // MARK: - Life cycle
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupProfileButton()
-        setupViews()
+        
+        setup()
     }
 }
 
-// MARK: - Setup views
+// MARK: - Setup
 private extension BagPageViewController {
+    
+    func setup() {
+        setupViews()
+        setupViewModel()
+        setupProfileButton()
+    }
+    
     func setupViews() {
         view.backgroundColor = .systemBackground
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: BaseNavigationBar())
+        
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
         tableView.dataSource = self
         tableView.delegate = self
-        moveToBagManager.delegate = self
         
         view.addSubview(orderButton)
         orderButton.snp.makeConstraints { make in
@@ -64,30 +69,36 @@ private extension BagPageViewController {
             make.trailing.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
             make.height.equalTo(48)
         }
+        
+        orderButton.addTarget(self, action: #selector(orderButtonTapped), for: .touchUpInside)
+    }
+    
+    private func setupViewModel() {
+        viewModel = BagPageViewModel()
+        viewModel.orderListDidChange = { [weak self] in
+            guard let self = self else { return }
+            self.tableView.reloadData()
+        }
+    }
+    
+    @objc private func orderButtonTapped() {
+        viewModel.placeOrder()
     }
 }
 
 // MARK: - Table view data source and delegate
 extension BagPageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        moveToBagManager.orderListArray.count
-        if bagModel.count == 0 {
+        if viewModel.orderList.count == 0 {
             orderButton.isHidden = true
         }
-        return bagModel.count
+        
+        return viewModel.orderList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BagPageTableViewCell.identifier, for: indexPath) as! BagPageTableViewCell
-//        let model = moveToBagManager.orderListArray[indexPath.row]
-//        cell.configure(model)
         return cell
     }
 }
 
-// MARK: - MoveToBagDelegate
-extension BagPageViewController: MoveToBagManagerDelegate {
-    func updateOrderList() {
-        self.tableView.reloadData()
-    }
-}
