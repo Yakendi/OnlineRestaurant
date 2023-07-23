@@ -31,14 +31,14 @@ final class BaseNavigationBar: UIView {
     
     private let locationLabel: UILabel = {
         let label = UILabel()
-        label.font = .navigationBarTitle
+        label.font = .sfpdM18
         return label
     }()
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .subtitleColor
-        label.font = .subtitle
+        label.textColor = .gray3
+        label.font = .sfpdR14
         return label
     }()
     

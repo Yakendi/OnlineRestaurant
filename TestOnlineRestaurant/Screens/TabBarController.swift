@@ -53,7 +53,7 @@ final class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        tabBar.tintColor = .mainColor
+        tabBar.tintColor = .main
         setupTabs()
     }
 }

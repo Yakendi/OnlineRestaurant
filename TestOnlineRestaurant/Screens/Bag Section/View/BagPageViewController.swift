@@ -29,9 +29,9 @@ final class BagPageViewController: UIViewController {
     private let orderButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 10
-        button.backgroundColor = .mainColor
+        button.backgroundColor = .main
         button.setTitle("Оплатить", for: .normal)
-        button.titleLabel?.font = .dishName
+        button.titleLabel?.font = .sfpdM16
         return button
     }()
     

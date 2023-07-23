@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct CategoriesPageViewFactory {
-    static func create() -> CategoriesViewController {
-        let controller = CategoriesViewController()
+struct MenuPageViewFactory {
+    static func create() -> MenuPageViewController {
+        let controller = MenuPageViewController()
         return controller
     }
 }

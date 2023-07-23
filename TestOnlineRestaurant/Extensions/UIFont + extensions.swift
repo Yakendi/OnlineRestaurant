@@ -10,9 +10,9 @@ import UIKit
 extension UIFont {
     
     // MARK: - Custom fonts
-    static let title = UIFont(name: "SFProDisplay-Medium", size: 20)
-    static let navigationBarTitle = UIFont(name: "SFProDisplay-Medium", size: 18)
-    static let dishName = UIFont(name: "SFProDisplay-Medium", size: 16)
-    static let orderCount = UIFont(name: "SFProDisplay-Medium", size: 14)
-    static let subtitle = UIFont(name: "SFProDisplay-Regular", size: 14)
+    static let sfpdM20 = UIFont(name: "SFProDisplay-Medium", size: 20)
+    static let sfpdM18 = UIFont(name: "SFProDisplay-Medium", size: 18)
+    static let sfpdM16 = UIFont(name: "SFProDisplay-Medium", size: 16)
+    static let sfpdM14 = UIFont(name: "SFProDisplay-Medium", size: 14)
+    static let sfpdR14 = UIFont(name: "SFProDisplay-Regular", size: 14)
 }

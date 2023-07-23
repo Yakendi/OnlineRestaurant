@@ -18,7 +18,7 @@ final class PopUpView: UIView {
     // MARK: - UI
     private let backgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = .popUpShadowColor
+        view.backgroundColor = .gray2
         return view
     }()
     
@@ -33,7 +33,7 @@ final class PopUpView: UIView {
     
     private let imageWrapperView: UIView = {
         let view = UIView()
-        view.backgroundColor = .dishImageColor
+        view.backgroundColor = .gray1
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
         return view
@@ -49,27 +49,27 @@ final class PopUpView: UIView {
     // labels
     private let dishNameLabel: UILabel = {
         let label = UILabel()
-        label.font = .dishName
+        label.font = .sfpdM16
         return label
     }()
     
     private let dishPriceLabel: UILabel = {
         let label = UILabel()
-        label.font = .subtitle
+        label.font = .sfpdR14
         return label
     }()
     
     private let dishWeightLabel: UILabel = {
         let label = UILabel()
-        label.font = .subtitle
-        label.textColor = .subtitleColor
+        label.font = .sfpdR14
+        label.textColor = .gray2
         return label
     }()
     
     private let dishDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = .subtitle
-        label.textColor = .subtitleColor2
+        label.font = .sfpdR14
+        label.textColor = .gray4
         label.numberOfLines = 0
         return label
     }()
@@ -78,10 +78,10 @@ final class PopUpView: UIView {
     private let addToBagButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(addToBagButtonAction), for: .touchUpInside)
-        button.backgroundColor = .mainColor
+        button.backgroundColor = .main
         button.layer.cornerRadius = 10
         button.setTitle("Добавить в корзину", for: .normal)
-        button.titleLabel?.font = .dishName
+        button.titleLabel?.font = .sfpdM16
         return button
     }()
     

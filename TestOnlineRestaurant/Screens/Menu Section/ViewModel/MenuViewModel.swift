@@ -7,28 +7,28 @@
 
 import Foundation
 
-final class CategoriesPageViewModel {
+final class MenuViewModel {
     
     // MARK: - Public
-    var dishesListDidChange: (() -> Void)?
+    var menuDidChange: (() -> Void)?
     var showError: ((Error) -> Void)?
     
     // MARK: - Private
     private let network = ServiceFactory.shared
-    private(set) var dishesList: [Dishes] = [] {
+    private(set) var menu: [Dishes] = [] {
         didSet {
-            dishesListDidChange?()
+            menuDidChange?()
         }
     }
     
-    // MARK: - Public Methods
-    func fetchDishesList() {
-        network.allDishes { [weak self] result in
+    // MARK: - Binding
+    func fetchMenu() {
+        network.allMenu { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let data):
-                self.dishesList = data.dishes
+                self.menu = data.dishes
             case .failure(let error):
                 self.showError?(error)
             }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CategoriesPageCoordinator: Coordinator {
+final class MenuPageCoordinator: Coordinator {
     
     // MARK: - Public
     var navigationController: UINavigationController
@@ -18,7 +18,7 @@ final class CategoriesPageCoordinator: Coordinator {
     }
     
     func start() {
-        let controller = CategoriesPageViewFactory.create()
+        let controller = MenuPageViewFactory.create()
         self.navigationController.setViewControllers([controller], animated: true)
     }
 }

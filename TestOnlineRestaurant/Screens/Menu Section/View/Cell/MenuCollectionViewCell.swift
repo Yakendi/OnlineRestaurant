@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CategoriesPageCollectionViewCell: UICollectionViewCell {
+final class MenuCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Identifier
     static var identifier: String {
@@ -19,7 +19,7 @@ final class CategoriesPageCollectionViewCell: UICollectionViewCell {
         let view = UIView()
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
-        view.backgroundColor = .dishImageColor
+        view.backgroundColor = .gray1
         return view
     }()
     
@@ -32,7 +32,7 @@ final class CategoriesPageCollectionViewCell: UICollectionViewCell {
     private let dishNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .subtitle
+        label.font = .sfpdR14
         return label
     }()
     
@@ -59,7 +59,7 @@ final class CategoriesPageCollectionViewCell: UICollectionViewCell {
 }
 
 // MARK: - Setup views
-private extension CategoriesPageCollectionViewCell {
+private extension MenuCollectionViewCell {
     func setupViews() {
         contentView.addSubview(wrapperView)
         wrapperView.snp.makeConstraints { make in

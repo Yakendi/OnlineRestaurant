@@ -52,6 +52,7 @@ private extension HomePageViewController {
     
     func setupViewModel() {
         viewModel = HomePageViewModel()
+        viewModel.fetchCategories()
         
         viewModel.categoriesDidChange = { [weak self] in
             guard let self = self else { return }
@@ -65,7 +66,6 @@ private extension HomePageViewController {
                 self.showAlert(title: NetworkErrorTypes.emptyData.localizedDescription)
             }
         }
-        viewModel.fetchCategories()
     }
 }
 
@@ -85,7 +85,7 @@ extension HomePageViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = CategoriesPageViewFactory.create()
+        let vc = MenuPageViewFactory.create()
         let model = viewModel.categories[indexPath.row].name
         vc.pageTitle = model
         navigationController?.pushViewController(vc, animated: true)

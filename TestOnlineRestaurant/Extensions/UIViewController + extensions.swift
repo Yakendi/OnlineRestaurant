@@ -29,7 +29,7 @@ extension UIViewController {
     }
     
     func setupTitle() {
-        let titleAttributes = [NSAttributedString.Key.font: UIFont.navigationBarTitle]
+        let titleAttributes = [NSAttributedString.Key.font: UIFont.sfpdM18]
         navigationController?.navigationBar.titleTextAttributes = titleAttributes as [NSAttributedString.Key : Any]
     }
     

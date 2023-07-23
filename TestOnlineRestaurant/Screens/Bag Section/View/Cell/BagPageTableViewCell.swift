@@ -19,7 +19,7 @@ final class BagPageTableViewCell: UITableViewCell {
     // image
     private let imageWrapperView: UIView = {
         let view = UIView()
-        view.backgroundColor = .dishImageColor
+        view.backgroundColor = .gray1
         view.layer.cornerRadius = 6
         view.clipsToBounds = true
         return view
@@ -43,7 +43,7 @@ final class BagPageTableViewCell: UITableViewCell {
     private let buttonsWrapperView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 10
-        view.backgroundColor = .orderCountColor
+        view.backgroundColor = .gray5
         return view
     }()
     
@@ -76,12 +76,12 @@ final class BagPageTableViewCell: UITableViewCell {
         dishNameLabel.text = "Рис с овощами"
         dishPriceLabel.text = "490 ₽"
         dishWeightLabel.text = "· 550г"
-        dishWeightLabel.textColor = .subtitleColor
+        dishWeightLabel.textColor = .gray2
         [dishNameLabel, dishPriceLabel, dishWeightLabel].forEach {
-            $0.font = .subtitle
+            $0.font = .sfpdR14
         }
         orderCountLabel.text = "1"
-        orderCountLabel.font = .orderCount
+        orderCountLabel.font = .sfpdM14
     }
 }
 
