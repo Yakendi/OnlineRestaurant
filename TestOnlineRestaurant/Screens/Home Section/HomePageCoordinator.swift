@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol MoveToMenu: AnyObject {
+    func move(_ pageTitle: String)
+}
+
 final class HomePageCoordinator: Coordinator {
     
     // MARK: - Public
@@ -22,6 +26,15 @@ final class HomePageCoordinator: Coordinator {
     // MARK: -
     func start() {
         let controller = HomePageViewFactory.create()
+        controller.delegate = self
         self.navigationController.setViewControllers([controller], animated: true)
+    }
+}
+
+extension HomePageCoordinator: MoveToMenu {
+    func move(_ pageTitle: String) {
+        let controller = MenuPageViewFactory.create()
+        controller.pageTitle = pageTitle
+        self.navigationController.pushViewController(controller, animated: true)
     }
 }

@@ -16,23 +16,18 @@ final class MenuPageViewController: UIViewController {
             navigationItem.title = pageTitle
         }
     }
-    var model: [CollectionViewCellModel] = []
     
     // MARK: - Private
-    private var categoriesViewModel: CategoriesViewModel!
+    private var categoriesViewModel = CategoriesViewModel()
     private var menuViewModel: MenuViewModel!
+    private var sections: [SectionType] = []
+    private var categorySelectedIndex = 0
     
     // MARK: - UI
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
-        collectionView.register(
-            MenuCollectionViewCell.self,
-            forCellWithReuseIdentifier: MenuCollectionViewCell.identifier
-        )
-        collectionView.register(
-            CategoriesCollectionViewCell.self,
-            forCellWithReuseIdentifier: CategoriesCollectionViewCell.identifier
-        )
+        collectionView.register(MenuCollectionViewCell.self)
+        collectionView.register(CategoriesCollectionViewCell.self)
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
@@ -43,22 +38,15 @@ final class MenuPageViewController: UIViewController {
         
         setup()
     }
-    
-    private var categories: [ListOfCategories] = [
-        ListOfCategories(name: "Всё меню"),
-        ListOfCategories(name: "Салаты"),
-        ListOfCategories(name: "C рисом"),
-        ListOfCategories(name: "C рыбой"),
-        ListOfCategories(name: "Роллы")
-    ]
 }
 
-// MARK: - Setup views
+// MARK: - Setup
 private extension MenuPageViewController {
     func setup() {
         setupViews()
         setupNavigationBar()
-        setupViewModel()
+        setupMenuViewModel()
+        setupSections()
     }
     
     func setupViews() {
@@ -71,7 +59,7 @@ private extension MenuPageViewController {
         }
     }
     
-    func setupViewModel() {
+    func setupMenuViewModel() {
         menuViewModel = MenuViewModel()
         menuViewModel.fetchMenu()
         
@@ -88,44 +76,57 @@ private extension MenuPageViewController {
             }
         }
     }
+    
+    func setupSections() {
+        sections = [
+            SectionType(type: .categories, data: [categoriesViewModel.categories]),
+            SectionType(type: .menu, data: [menuViewModel.menu])
+        ]
+    }
 }
 
 // MARK: - Setup collection view layout
 private extension MenuPageViewController {
-
+    
     func createCategoriesSectionLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(100), heightDimension: .absolute(35))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
+        
         let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(itemSize.widthDimension.dimension), heightDimension: .absolute(35))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
         section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16)
         section.interGroupSpacing = 8
-
+        
         return section
     }
-
+    
     func createMenuSectionLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .absolute((view.frame.size.width - 48) / 3), heightDimension: .absolute(view.frame.size.width / 2.55))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
+        
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(itemSize.heightDimension.dimension))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 3)
         group.interItemSpacing = NSCollectionLayoutSpacing.fixed(8)
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 14
         section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16)
-
+        
         return section
     }
     
     func layout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout(sectionProvider: { sectionIndex, _ in
-            return sectionIndex == 0 ? self.createCategoriesSectionLayout() : self.createMenuSectionLayout()
+        let layout = UICollectionViewCompositionalLayout(sectionProvider: { [weak self] sectionIndex, _ in
+            guard let self = self else { return nil }
+            switch self.sections[sectionIndex].type {
+            case .categories:
+                return self.createCategoriesSectionLayout()
+            case .menu:
+                return self.createMenuSectionLayout()
+            }
         })
         return layout
     }
@@ -135,46 +136,31 @@ private extension MenuPageViewController {
 extension MenuPageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
-        //        model.count
+        sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //        menuViewModel.menu.count
-        if section == 0 {
-            return categories.count
-        } else {
+        let sectionType = sections[section].type
+
+        switch sectionType {
+        case .categories:
+            return categoriesViewModel.categories.count
+        case .menu:
             return menuViewModel.menu.count
         }
-        //        switch model[section] {
-        //        case .categories(_):
-        //            return categoriesViewModel.categories.count
-        //        case .menu(_):
-        //            return menuViewModel.menu.count
-        //        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        switch model[indexPath.section] {
-        //        case .categories(_):
-        //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as! CategoriesCollectionViewCell
-        //            let categories = categoriesViewModel.categories[indexPath.item]
-        //            cell.configure(categories)
-        //            return cell
-        //        case .menu(_):
-        //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCollectionViewCell.identifier, for: indexPath) as! MenuCollectionViewCell
-        //            let selectedItem = menuViewModel.menu[indexPath.item]
-        //            cell.configure(selectedItem)
-        //            return cell
-        //        }
-        if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as! CategoriesCollectionViewCell
-//            let categories = categoriesViewModel.categories[indexPath.item]
-            let categories = categories[indexPath.item]
-            cell.configure(categories)
+        let sectionType = sections[indexPath.section].type
+        
+        switch sectionType {
+        case .categories:
+            let cell = collectionView.dequeue(CategoriesCollectionViewCell.self, indexPath: indexPath)
+            let categories = categoriesViewModel.categories[indexPath.item]
+            cell.configure(categories, isSelected: indexPath.item == categorySelectedIndex)
             return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCollectionViewCell.identifier, for: indexPath) as! MenuCollectionViewCell
+        case .menu:
+            let cell = collectionView.dequeue(MenuCollectionViewCell.self, indexPath: indexPath)
             let selectedItem = menuViewModel.menu[indexPath.item]
             cell.configure(selectedItem)
             return cell
@@ -182,9 +168,15 @@ extension MenuPageViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedItem = menuViewModel.menu[indexPath.item]
-        let view = DetailPopUpViewFactory.create()
-        view.fillElements(selectedItem)
-        view.show()
+        let sectionType = sections[indexPath.section].type
+        
+        switch sectionType {
+        case .categories:
+            categorySelectedIndex = indexPath.item
+            collectionView.reloadData()
+        case .menu:
+            let selectedItem = menuViewModel.menu[indexPath.item]
+            menuViewModel.showPopUp(selectedItem)
+        }
     }
 }

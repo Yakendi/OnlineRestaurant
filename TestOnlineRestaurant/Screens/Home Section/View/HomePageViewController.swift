@@ -10,19 +10,22 @@ import SnapKit
 
 final class HomePageViewController: UIViewController {
     
+    // MARK: - Public
+    weak var delegate: MoveToMenu?
+    
     // MARK: - Private
     private var viewModel: HomePageViewModel!
     
     // MARK: - UI
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(HomePageTableViewCell.self, forCellReuseIdentifier: HomePageTableViewCell.identifier)
+        tableView.register(HomePageTableViewCell.self)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         return tableView
     }()
     
-    // MARK: - Lifecycle Methods
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,7 +80,7 @@ extension HomePageViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HomePageTableViewCell.identifier, for: indexPath) as! HomePageTableViewCell
+        let cell = tableView.dequeue(HomePageTableViewCell.self, indexPath: indexPath)
         let selectedItem = viewModel.categories[indexPath.row]
         cell.configure(selectedItem)
         return cell
@@ -85,9 +88,7 @@ extension HomePageViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = MenuPageViewFactory.create()
         let model = viewModel.categories[indexPath.row].name
-        vc.pageTitle = model
-        navigationController?.pushViewController(vc, animated: true)
+        delegate?.move(model)
     }
 }

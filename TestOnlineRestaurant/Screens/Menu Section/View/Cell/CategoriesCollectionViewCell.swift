@@ -18,7 +18,6 @@ final class CategoriesCollectionViewCell: UICollectionViewCell {
     // MARK: - UI
     private let categoryButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .main
         button.titleLabel?.font = .sfpdR14
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
@@ -28,7 +27,6 @@ final class CategoriesCollectionViewCell: UICollectionViewCell {
     let categoryButtonLabel: UILabel = {
         let label = UILabel()
         label.font = .sfpdR14
-        label.textColor = .white
         label.textAlignment = .center
         return label
     }()
@@ -45,8 +43,11 @@ final class CategoriesCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Configurator
-    func configure(_ model: ListOfCategories) {
+    func configure(_ model: ListOfCategories, isSelected: Bool) {
+        categoryButton.backgroundColor = isSelected ? .main : .gray1
+        
         categoryButtonLabel.text = model.name
+        categoryButtonLabel.textColor = isSelected ? .white : .black
     }
 }
 

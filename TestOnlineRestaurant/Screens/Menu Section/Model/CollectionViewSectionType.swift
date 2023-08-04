@@ -7,7 +7,12 @@
 
 import Foundation
 
-enum CollectionViewCellModel {
-    case categories(_ model: [ListOfCategories])
-    case menu(_ model: [Dishes])
+enum CollectionSectionType {
+    case categories
+    case menu
+}
+
+struct SectionType {
+    let type: CollectionSectionType
+    let data: [Any]
 }

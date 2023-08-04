@@ -10,7 +10,7 @@ import Foundation
 final class CategoriesViewModel {
     
     // MARK: - Private
-    var categories: [ListOfCategories] = [
+    private(set) var categories: [ListOfCategories] = [
         ListOfCategories(name: "Всё меню"),
         ListOfCategories(name: "Салаты"),
         ListOfCategories(name: "C рисом"),
