@@ -39,7 +39,7 @@ final class MenuViewModel {
 extension MenuViewModel {
     func showPopUp(_ model: Dishes) {
         let view = DetailPopUpViewFactory.create()
-        view.fillElements(model)
-        view.show()
+        view.keyWindow()
+        view.configure(model)
     }
 }

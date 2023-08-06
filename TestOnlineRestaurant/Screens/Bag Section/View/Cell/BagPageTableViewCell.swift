@@ -64,18 +64,17 @@ final class BagPageTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupViews()
-        fillElements()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: -
-    func fillElements() {
-        dishNameLabel.text = "Рис с овощами"
-        dishPriceLabel.text = "490 ₽"
-        dishWeightLabel.text = "· 550г"
+    // MARK: - Configurator
+    func configure(_ model: Dishes) {
+        dishNameLabel.text = model.name
+        dishPriceLabel.text = "\(model.price) ₽"
+        dishWeightLabel.text = "· \(model.weight)г"
         dishWeightLabel.textColor = .gray2
         [dishNameLabel, dishPriceLabel, dishWeightLabel].forEach {
             $0.font = .sfpdR14

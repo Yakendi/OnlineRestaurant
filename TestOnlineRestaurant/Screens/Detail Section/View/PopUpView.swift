@@ -12,7 +12,7 @@ import Kingfisher
 final class PopUpView: UIView {
     
     // MARK: - Public
-//    var model: Dishes!
+    var model: Dishes!
     private let moveToBagManager = MoveToBagManager.shared
     
     // MARK: - UI
@@ -110,7 +110,8 @@ final class PopUpView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func fillElements(_ model: Dishes) {
+    // MARK: - Configurator
+    func configure(_ model: Dishes) {
         // image
         dishImageView.kf.indicatorType = .activity
         dishImageView.kf.setImage(with: URL(string: model.imageURL))
@@ -122,17 +123,22 @@ final class PopUpView: UIView {
         dishDescriptionLabel.text = model.desscription
     }
     
+    // MARK: -
     @objc func addToBagButtonAction() {
-//        let model: Dishes!
-//        moveToBagManager.addToBag(model)
+        addToBagButton.zoomIn()
+        let model = Dishes(
+            id: 1,
+            name: "sdm",
+            price: 3,
+            weight: 23,
+            desscription: "lsdl",
+            imageURL: ""
+        )
+        moveToBagManager.addToBag(model)
     }
     
     @objc private func dismiss() {
         removeFromSuperview()
-    }
-    
-    func show() {
-        UIApplication.shared.keyWindow?.addSubview(self)
     }
 }
 

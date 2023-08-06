@@ -16,11 +16,7 @@ final class BagPageViewController: UIViewController {
     // MARK: - UI
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(
-            BagPageTableViewCell.self,
-            forCellReuseIdentifier: BagPageTableViewCell.identifier
-        )
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(BagPageTableViewCell.self)
         tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .none
         return tableView
@@ -32,6 +28,7 @@ final class BagPageViewController: UIViewController {
         button.backgroundColor = .main
         button.setTitle("Оплатить", for: .normal)
         button.titleLabel?.font = .sfpdM16
+        button.isHidden = true
         return button
     }()
     
@@ -89,16 +86,23 @@ private extension BagPageViewController {
 // MARK: - Table view data source and delegate
 extension BagPageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if viewModel.orderList.count == 0 {
-            orderButton.isHidden = true
+        
+        if !viewModel.orderList.isEmpty {
+            orderButton.isHidden = false
         }
         
         return viewModel.orderList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BagPageTableViewCell.identifier, for: indexPath) as! BagPageTableViewCell
+        let cell = tableView.dequeue(BagPageTableViewCell.self, indexPath: indexPath)
+        let model = viewModel.orderList[indexPath.row]
+        cell.configure(model)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

@@ -17,8 +17,10 @@ final class MoveToBagManager {
     static let shared = MoveToBagManager()
     
     // MARK: - Public
-    var orderListArray: [Dishes] = []
     weak var delegate: MoveToBagManagerDelegate?
+    
+    // MARK: - Private
+    private(set) var orderListArray: [Dishes] = []
     
     func addToBag(_ model: Dishes) {
         self.orderListArray.append(model)
