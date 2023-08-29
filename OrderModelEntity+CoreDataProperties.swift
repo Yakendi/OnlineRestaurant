@@ -17,13 +17,12 @@ extension OrderModelEntity {
     }
 
     @NSManaged public var imageURL: String?
-    @NSManaged public var desscription: String?
     @NSManaged public var weight: Int64
     @NSManaged public var price: Int64
     @NSManaged public var name: String?
     @NSManaged public var id: Int64
     @NSManaged public var orderCount: Int64
-
+    @NSManaged public var isFavorite: Bool
 }
 
 extension OrderModelEntity : Identifiable {

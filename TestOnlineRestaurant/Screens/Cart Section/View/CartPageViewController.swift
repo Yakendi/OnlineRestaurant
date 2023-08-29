@@ -8,15 +8,16 @@
 import UIKit
 import SnapKit
 
-final class BagPageViewController: UIViewController {
+final class CartPageViewController: UIViewController {
     
     // MARK: - Private
-    private var viewModel: BagPageViewModel!
+    private var viewModel: CartPageViewModel!
+    private let cartManager = CartManager.shared
     
     // MARK: - UI
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(BagPageTableViewCell.self)
+        tableView.register(CartPageTableViewCell.self)
         tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .none
         return tableView
@@ -41,7 +42,7 @@ final class BagPageViewController: UIViewController {
 }
 
 // MARK: - Setup
-private extension BagPageViewController {
+private extension CartPageViewController {
     
     func setup() {
         setupViews()
@@ -65,26 +66,20 @@ private extension BagPageViewController {
             make.leading.equalToSuperview().offset(16)
             make.trailing.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
             make.height.equalTo(48)
-        }
-        
-        orderButton.addTarget(self, action: #selector(orderButtonTapped), for: .touchUpInside)
+        }        
     }
     
     private func setupViewModel() {
-        viewModel = BagPageViewModel()
+        viewModel = CartPageViewModel()
         viewModel.orderListDidChange = { [weak self] in
             guard let self = self else { return }
             self.tableView.reloadData()
         }
     }
-    
-    @objc private func orderButtonTapped() {
-        viewModel.placeOrder()
-    }
 }
 
 // MARK: - Table view data source and delegate
-extension BagPageViewController: UITableViewDataSource, UITableViewDelegate {
+extension CartPageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if !viewModel.orderList.isEmpty {
@@ -95,7 +90,7 @@ extension BagPageViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeue(BagPageTableViewCell.self, indexPath: indexPath)
+        let cell = tableView.dequeue(CartPageTableViewCell.self, indexPath: indexPath)
         let model = viewModel.orderList[indexPath.row]
         cell.configure(model)
         return cell
@@ -103,6 +98,27 @@ extension BagPageViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Удалить") { [weak self] _, _, _ in
+
+            guard let self = self else { return }
+            
+            // Удаление модели из массив
+            let selectedPicture = self.cartManager.cartArray[indexPath.row]
+            self.cartManager.removeFromCart(selectedPicture, isNeedReload: false)
+
+            // Удаления ячейки из таблицы
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            if viewModel.orderList.isEmpty {
+                orderButton.isHidden = true
+            }
+        }
+
+        let swipe = UISwipeActionsConfiguration(actions: [delete])
+        return swipe
     }
 }
 

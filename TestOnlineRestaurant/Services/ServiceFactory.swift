@@ -25,7 +25,7 @@ final class ServiceFactory {
         networkLayer.makeRequest(to: .categories(), completion: completion)
     }
     
-    func allMenu(completion: @escaping Handler<DishesModel>) {
+    func allMenu(completion: @escaping Handler<[DishesModel]>) {
         networkLayer.makeRequest(to: .menu(), completion: completion)
     }
 }

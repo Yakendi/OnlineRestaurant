@@ -45,7 +45,7 @@ final class TabBarController: UITabBarController {
     // MARK: - Public
     let homePage = HomePageCoordinator()
     let searchPage = SearchPageCoordinator()
-    let bagPage = BagPageCoordinator()
+    let bagPage = CartPageCoordinator()
     let accountPage = AccountPageCoordinator()
     
     // MARK: - Life cycle

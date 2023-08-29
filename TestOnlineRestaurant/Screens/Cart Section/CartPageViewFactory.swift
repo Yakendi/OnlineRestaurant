@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct BagPageViewFactory {
-    static func create() -> BagPageViewController {
-        let controller = BagPageViewController()
+struct CartPageViewFactory {
+    static func create() -> CartPageViewController {
+        let controller = CartPageViewController()
         return controller
     }
 }

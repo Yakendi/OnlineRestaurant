@@ -7,32 +7,26 @@
 
 import Foundation
 
-final class BagPageViewModel {
+final class CartPageViewModel {
     
     // MARK: - Public
     var orderList: [Dishes] {
-        return moveToBagManager.orderListArray
+        return addToCartManager.cartArray
     }
     var orderListDidChange: (() -> Void)?
     
     // MARK: - Private
-    private let moveToBagManager = MoveToBagManager.shared
+    private let addToCartManager = CartManager.shared
     
     // MARK: - Constructor
     init() {
-        moveToBagManager.delegate = self
-    }
-    
-    // MARK: - Public Methods
-    func placeOrder() {
-        // Place order logic
+        addToCartManager.delegate = self
     }
 }
 
 // MARK: - MoveToBagDelegate
-extension BagPageViewModel: MoveToBagManagerDelegate {
+extension CartPageViewModel: CartManagerDelegate {
     func updateOrderList() {
         orderListDidChange?()
     }
 }
-

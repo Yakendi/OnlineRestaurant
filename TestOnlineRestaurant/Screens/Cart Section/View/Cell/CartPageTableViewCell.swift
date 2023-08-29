@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class BagPageTableViewCell: UITableViewCell {
+final class CartPageTableViewCell: UITableViewCell {
     
     // MARK: - Identifier
     static var identifier: String {
@@ -85,7 +85,7 @@ final class BagPageTableViewCell: UITableViewCell {
 }
 
 // MARK: - Setup views
-private extension BagPageTableViewCell {
+private extension CartPageTableViewCell {
     func setupViews() {
         
         // image

@@ -13,7 +13,8 @@ final class PopUpView: UIView {
     
     // MARK: - Public
     var model: Dishes!
-    private let moveToBagManager = MoveToBagManager.shared
+    private let moveToBagManager = CartManager.shared
+    private var isFavorite: Bool = false
     
     // MARK: - UI
     private let backgroundView: UIView = {
@@ -75,7 +76,7 @@ final class PopUpView: UIView {
     }()
     
     // buttons
-    private let addToBagButton: UIButton = {
+    private lazy var addToBagButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(addToBagButtonAction), for: .touchUpInside)
         button.backgroundColor = .main
@@ -85,16 +86,17 @@ final class PopUpView: UIView {
         return button
     }()
     
-    private let addToFavoritesButton: UIButton = {
+    private lazy var addToFavoritesButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "favoritesButton"), for: .normal)
+        button.addTarget(self, action: #selector(favoritesButtonAction), for: .touchUpInside)
         return button
     }()
     
-    private let closeButton: UIButton = {
+    private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "closeButton"), for: .normal)
-        button.addTarget(self, action: #selector(dismiss), for: .touchUpInside)
+        button.addTarget(self, action: #selector(dismissPopUp), for: .touchUpInside)
         return button
     }()
     
@@ -120,10 +122,20 @@ final class PopUpView: UIView {
         dishNameLabel.text = model.name
         dishPriceLabel.text = "\(model.price)₽"
         dishWeightLabel.text = "· \(model.weight)г"
-        dishDescriptionLabel.text = model.desscription
+        dishDescriptionLabel.text = model.description
     }
     
-    // MARK: -
+    // MARK: - Actions
+    @objc func favoritesButtonAction() {
+        if isFavorite {
+            addToFavoritesButton.setImage(UIImage(named: "favoritesButton"), for: .normal)
+            isFavorite = false
+        } else {
+            addToFavoritesButton.setImage(UIImage(named: "favoritesButtonRed"), for: .normal)
+            isFavorite = true
+        }
+    }
+    
     @objc func addToBagButtonAction() {
         addToBagButton.zoomIn()
         let model = Dishes(
@@ -131,13 +143,13 @@ final class PopUpView: UIView {
             name: "sdm",
             price: 3,
             weight: 23,
-            desscription: "lsdl",
+            description: "lsdl",
             imageURL: ""
         )
-        moveToBagManager.addToBag(model)
+        moveToBagManager.addToCart(model)
     }
     
-    @objc private func dismiss() {
+    @objc private func dismissPopUp() {
         removeFromSuperview()
     }
 }
