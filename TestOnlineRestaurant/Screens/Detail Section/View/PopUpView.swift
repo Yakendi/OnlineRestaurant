@@ -10,11 +10,11 @@ import SnapKit
 import Kingfisher
 
 final class PopUpView: UIView {
-    
-    // MARK: - Public
-    var model: Dishes!
-    private let moveToBagManager = CartManager.shared
+        
+    // MARK: - Private
+    private var model: MenuModel!
     private var isFavorite: Bool = false
+    private let cartManager = CartManager.shared
     
     // MARK: - UI
     private let backgroundView: UIView = {
@@ -76,9 +76,9 @@ final class PopUpView: UIView {
     }()
     
     // buttons
-    private lazy var addToBagButton: UIButton = {
+    private lazy var addToCartButton: UIButton = {
         let button = UIButton()
-        button.addTarget(self, action: #selector(addToBagButtonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(addToCartButtonAction), for: .touchUpInside)
         button.backgroundColor = .main
         button.layer.cornerRadius = 10
         button.setTitle("Добавить в корзину", for: .normal)
@@ -113,10 +113,10 @@ final class PopUpView: UIView {
     }
     
     // MARK: - Configurator
-    func configure(_ model: Dishes) {
+    func configure(_ model: MenuModel) {
         // image
         dishImageView.kf.indicatorType = .activity
-        dishImageView.kf.setImage(with: URL(string: model.imageURL))
+        dishImageView.kf.setImage(with: URL(string: model.image))
         
         // labels
         dishNameLabel.text = model.name
@@ -136,17 +136,14 @@ final class PopUpView: UIView {
         }
     }
     
-    @objc func addToBagButtonAction() {
-        addToBagButton.zoomIn()
-        let model = Dishes(
-            id: 1,
-            name: "sdm",
-            price: 3,
-            weight: 23,
-            description: "lsdl",
-            imageURL: ""
-        )
-        moveToBagManager.addToCart(model)
+    @objc func addToCartButtonAction() {
+        addToCartButton.zoomIn()
+        
+        guard let model = model else {
+            print("Model is nil")
+            return
+        }
+        cartManager.addToCart(model)
     }
     
     @objc private func dismissPopUp() {
@@ -229,8 +226,8 @@ private extension PopUpView {
             make.trailing.equalTo(imageWrapperView.snp.trailing)
         }
         
-        contentView.addSubview(addToBagButton)
-        addToBagButton.snp.makeConstraints { make in
+        contentView.addSubview(addToCartButton)
+        addToCartButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalTo(dishDescriptionLabel.snp.bottom).offset(16)
             make.trailing.bottom.equalToSuperview().offset(-16)

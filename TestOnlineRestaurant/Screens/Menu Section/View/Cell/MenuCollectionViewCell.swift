@@ -47,11 +47,11 @@ final class MenuCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ model: Dishes) {
+    func configure(_ model: MenuModel) {
         
         // image
         dishImageView.kf.indicatorType = .activity
-        dishImageView.kf.setImage(with: URL(string: model.imageURL))
+        dishImageView.kf.setImage(with: URL(string: model.image))
         
         // label
         dishNameLabel.text = model.name

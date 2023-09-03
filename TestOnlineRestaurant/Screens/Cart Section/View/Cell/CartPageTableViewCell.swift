@@ -71,7 +71,7 @@ final class CartPageTableViewCell: UITableViewCell {
     }
     
     // MARK: - Configurator
-    func configure(_ model: Dishes) {
+    func configure(_ model: MenuModel) {
         dishNameLabel.text = model.name
         dishPriceLabel.text = "\(model.price) ₽"
         dishWeightLabel.text = "· \(model.weight)г"

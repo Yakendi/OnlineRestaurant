@@ -10,7 +10,7 @@ import Foundation
 final class CartPageViewModel {
     
     // MARK: - Public
-    var orderList: [Dishes] {
+    var orderList: [MenuModel] {
         return addToCartManager.cartArray
     }
     var orderListDidChange: (() -> Void)?

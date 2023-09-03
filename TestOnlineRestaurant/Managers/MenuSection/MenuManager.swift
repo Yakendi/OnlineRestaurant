@@ -40,7 +40,7 @@ final class MenuManager {
             
             switch result {
             case .success(let data):
-                convertData(data)
+                convertData([data])
                 completion(self.menuListArray)
             case .failure(let error):
                 print(error.localizedDescription)

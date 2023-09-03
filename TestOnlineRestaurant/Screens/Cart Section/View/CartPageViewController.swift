@@ -102,14 +102,11 @@ extension CartPageViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "Удалить") { [weak self] _, _, _ in
-
             guard let self = self else { return }
             
-            // Удаление модели из массив
             let selectedPicture = self.cartManager.cartArray[indexPath.row]
             self.cartManager.removeFromCart(selectedPicture, isNeedReload: false)
 
-            // Удаления ячейки из таблицы
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             
             if viewModel.orderList.isEmpty {

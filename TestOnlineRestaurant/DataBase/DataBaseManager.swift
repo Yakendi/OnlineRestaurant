@@ -27,19 +27,19 @@ final class DataBaseManager: NSObject {
     private let request: NSFetchRequest<OrderModelEntity> = OrderModelEntity.fetchRequest()
     
     // MARK: - Storage
-    func fetchCartArray() -> [Dishes] {
-        var cartArray: [Dishes] = []
+    func fetchCartArray() -> [MenuModel] {
+        var cartArray: [MenuModel] = []
 
         do {
             let tackedData = try viewContext.fetch(request)
             cartArray = tackedData.map {
-                return Dishes(
+                return MenuModel(
                     id: Int($0.id),
                     name: $0.name ?? "",
                     price: Int($0.price),
                     weight: Int($0.weight),
                     description: "",
-                    imageURL: $0.imageURL ?? ""
+                    image: $0.imageURL ?? ""
                 )
             }
         } catch {
@@ -49,14 +49,13 @@ final class DataBaseManager: NSObject {
         return cartArray
     }
     
-    func saveToCartModel(_ model: Dishes) {
+    func saveToCartModel(_ model: MenuModel) {
         let saveEntity = OrderModelEntity(context: viewContext)
         saveEntity.id = Int64(model.id)
         saveEntity.name = model.name
         saveEntity.price = Int64(model.price)
         saveEntity.weight = Int64(model.weight)
-        saveEntity.imageURL = model.imageURL
-        
+        saveEntity.imageURL = model.image
         do {
             try viewContext.save()
         } catch {
@@ -64,7 +63,7 @@ final class DataBaseManager: NSObject {
         }
     }
     
-    func removeFromCartModel(_ model: Dishes) {
+    func removeFromCartModel(_ model: MenuModel) {
         let predicate = NSPredicate(format: "name like %@", model.name)
         request.predicate = predicate
         
@@ -74,6 +73,22 @@ final class DataBaseManager: NSObject {
                 viewContext.delete(object)
             }
             try viewContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func updateFavoriteStatus(_ model: MenuModel) {
+        let predicate = NSPredicate(format: "id like %@", model.id)
+        request.predicate = predicate
+        
+        do {
+            let context = persistentContainer.viewContext
+            let fetchedResults = try context.fetch(request)
+            if let entity = fetchedResults.first {
+                entity.isFavorite = model.isFavorite
+                try context.save()
+            }
         } catch {
             print(error.localizedDescription)
         }

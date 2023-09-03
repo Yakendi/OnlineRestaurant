@@ -14,8 +14,8 @@ final class MenuViewModel {
     var showError: ((Error) -> Void)?
     
     // MARK: - Private
-    private let network = ServiceFactory.shared
-    private(set) var menu: [Dishes] = [] {
+    private let menuManager = MenuManager.shared
+    private(set) var menu: [MenuModel] = [] {
         didSet {
             menuDidChange?()
         }
@@ -23,21 +23,27 @@ final class MenuViewModel {
     
     // MARK: - Binding
     func fetchMenu() {
-        network.allMenu { [weak self] result in
+//        network.allMenu { [weak self] result in
+//            guard let self = self else { return }
+//
+//            switch result {
+//            case .success(let data):
+//                self.menu = data.dishes
+//            case .failure(let error):
+//                self.showError?(error)
+//            }
+//        }
+        
+        menuManager.getMenuList { [weak self] menuArray in
             guard let self = self else { return }
             
-            switch result {
-            case .success(let data):
-                self.menu = data.dishes
-            case .failure(let error):
-                self.showError?(error)
-            }
+            self.menu = menuArray
         }
     }
 }
 
 extension MenuViewModel {
-    func showPopUp(_ model: Dishes) {
+    func showPopUp(_ model: MenuModel) {
         let view = DetailPopUpViewFactory.create()
         view.keyWindow()
         view.configure(model)

@@ -21,7 +21,7 @@ final class CartManager {
     
     // MARK: - Private
     private let storageManager = DataBaseManager()
-    private(set) var cartArray: [Dishes] = []
+    private(set) var cartArray: [MenuModel] = []
     
     // MARK: - Constructor
     init() {
@@ -29,18 +29,22 @@ final class CartManager {
     }
     
     // MARK: - Update order list
-    func addToCart(_ model: Dishes) {
+    func addToCart(_ model: MenuModel) {
         cartArray.append(model)
         delegate?.updateOrderList()
         storageManager.saveToCartModel(model)
     }
     
-    func removeFromCart(_ model: Dishes, isNeedReload: Bool) {
+    func removeFromCart(_ model: MenuModel, isNeedReload: Bool) {
         cartArray.removeAll { $0 == model }
         storageManager.removeFromCartModel(model)
         
         if isNeedReload {
             delegate?.updateOrderList()
         }
+    }
+    
+    func changeFavoriteStatus(_ model: MenuModel) {
+        storageManager.updateFavoriteStatus(model)
     }
 }
